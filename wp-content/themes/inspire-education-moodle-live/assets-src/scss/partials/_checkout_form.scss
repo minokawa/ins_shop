@@ -1,0 +1,159 @@
+form.checkout {
+  h1.course-title {
+    margin: 20px 0px;
+  }
+  .select2-container {
+    width: 100% !important;
+  }
+  .select2-container--default .select2-selection--single {
+    border-radius: 0px;
+  }
+  .select2-container .select2-selection--single,
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 44px;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 44px;
+  }
+  .select {
+    width: 100%;
+    float: none;
+    margin: 0px;
+  }
+
+  #step2 {
+    #billing_first_name_field,
+    #billing_middle_name_field,
+    #billing_last_name_field{
+			width: 32%;
+		}
+
+    #billing_work_phone_field,
+    #billing_mobile_phone_field,
+		#billing_home_phone_field,
+    #billing_work_mobile_field{
+      width: 24%;
+    }
+    .shipping-address-group, .secondary-address-group, .usi_num {
+        padding: 10px;
+        background-color: #f4f4f4;
+        display: none;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+        h3{
+          padding: 10px 0px 10px 0px;
+          margin: 0px;
+          width: 100%;
+        }
+    }
+
+    .extra-details-group {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: space-between;
+      > p, >div {
+        width: 48%;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .residency_field_wrapper,
+      .visa_disclaimer_field_wrapper {
+        width: 100%;
+      }
+
+      .visa_disclaimer_field_wrapper{
+        padding: 10px;
+        background-color: #f4f4f4;
+      }
+
+      #ccf_country_birth_field{
+        width: 64%;
+      }
+      #ccf_date_birth_field{
+        width: 32%;
+      }
+
+      .gender_field_wrapper{
+          width: 64%;
+      }
+      .ethnicity_group_wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+        .ethnicity_field_wrapper{
+          width: 100%;
+        }
+      }
+    }
+		div#english-level{
+			padding: 10px;
+			background-color: #f4f4f4;
+		}
+
+    .checkout-form-personal-details{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .company-invoice-toggle, .home-address-toggle{
+      width: 100%;
+    }
+    h5 {
+      display: block;
+      clear: both;
+      text-transform: none !important;
+      width: 100%;
+      font-size: 1.2em;
+      font-weight: normal;
+      margin: 10px 0px;
+    }
+
+  }
+
+  #step4 {
+    div.checkbox p:empty { display: none; }
+    div.checkbox h3 {
+      padding: 0px;
+      margin: 20px 0px 20px 0px;
+    }
+  }
+
+  .next, .previous {
+    background-color: #002755;
+    display: inline-block;
+    padding: 16px 16px;
+    text-decoration: none;
+    text-shadow: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-image: none;
+    text-shadow: none;
+    border: none;
+    border-radius: 0px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    &:hover{
+      background-color: #1a97db;
+      border: 0;
+      transition: background-color .3s ease,color .3s ease,-webkit-transform .3s ease;
+      transition: background-color .3s ease,transform .3s ease,color .3s ease;
+      transition: background-color .3s ease,transform .3s ease,color .3s ease,-webkit-transform .3s ease;
+    }
+  }
+
+}
+

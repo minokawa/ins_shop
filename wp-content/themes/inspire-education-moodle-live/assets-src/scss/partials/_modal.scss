@@ -1,0 +1,55 @@
+.modal-dialog{
+  max-width: 720px;
+  margin: auto;
+  #product-courses{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  li{
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  h2 {
+    text-transform: capitalize;
+    color: #002755;
+    font-size: 1.7em;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 0.5em;
+    font-weight: 200;
+    padding: 8px 0px;
+  }
+}
+.modal-content {
+  padding: 25px 20px;
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+}
+.modal .close {
+  position: sticky;
+  cursor: pointer;
+  height: 32px;
+  width: 50px;
+  display: block;
+  color: #fff;
+  z-index: 999;
+  float: right;
+  background-image: none;
+  font-size: 2.2em;
+  text-align: left;
+  background-color: #f26122;
+  padding: 5px;
+  margin-right: -20px;
+  text-shadow: none;
+  top: 0px;
+  right: 0px;
+  box-shadow: #00000069 0px 2px 5px 0px;
+  &:hover{
+    background-color: #1a97db;
+    border: 0;
+    transition: background-color .3s ease,color .3s ease,-webkit-transform .3s ease;
+    transition: background-color .3s ease,transform .3s ease,color .3s ease;
+    transition: background-color .3s ease,transform .3s ease,color .3s ease,-webkit-transform .3s ease;
+  }
+}

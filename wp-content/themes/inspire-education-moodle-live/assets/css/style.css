@@ -1,0 +1,106 @@
+/*
+    Custom  stylesheet for additional edits
+    @author: JC Azcarraga
+*/
+
+/* GENERIC */
+.blue100{ color: #00A7DD; }
+.white{ color: white; }
+
+.b-0{ border: 0; }
+
+.w-100p{ width: 100%;}
+
+/* DISPLAY */
+.flex{ display: flex; }
+.ai-center{ align-items: center; }
+.just-center{ justify-content: center;}
+
+/* FONTS */
+.ff-museosan{ font-family: "Museo Sans"; }
+.ff-fontawesome{ font-family: "Font Awesome"; }
+
+.fw-300{ font-weight: 300; }
+.fw-900{ font-weight: 900; }
+
+/* Custom header container */
+.custom-header-container{
+    height: 35px;
+      font-size: 14px;
+    background: #002755;
+    text-shadow: none;
+    z-index: 10;
+    padding: 8px 8px 2px 8px;
+}
+
+.custom-header {
+  max-width: 960px;
+  margin: auto;
+  padding-top: 6px;
+}
+.custom-header > div { margin-right: 15px; }
+.custom-header > div a{ color: white; text-decoration: none; }
+.custom-header > div a span:first-child{ margin-right: 5px; }
+
+/* OVERRIDES */
+#header,
+#head-inner{ height: 53px; background-color: #00bce8;
+    color: #fff;}
+
+
+#login-area{
+  z-index: 99;
+  right: 10px;
+  top: -46px;
+}
+#login-area a {text-indent:-9999px;background:url(../images/but-login.png) no-repeat center top;width:181px;height:33px;display:block;}
+#nav li a {
+    color: #fff;
+    font-weight: normal;
+    text-shadow: none;
+}
+#nav li:hover a {
+    color: #022857;
+}
+/* ANIMATIONS */
+@keyframes wiggle {
+    0% { transform: rotate(10deg); }
+   5% { transform: rotate(-10deg); }
+   10% { transform: rotate(20deg); }
+   15% { transform: rotate(-5deg); }
+   20% { transform: rotate(0deg); }
+   25% { transform: rotate(10deg); }
+   30% { transform: rotate(-10deg); }
+   35% { transform: rotate(20deg); }
+   40% { transform: rotate(-5deg); }
+   45% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 780px){
+    .custom-header-container{ font-size: 12px; }
+    .custom-header{ width: 100%; }
+.woocommerce-product-gallery__image,.woocommerce div.product div.images {
+    width: 60%;
+    margin: auto;
+}
+
+}
+
+
+
+@media screen and (max-width: 450px){
+    .custom-header-container{
+        font-size: 12px;
+        height: 30px;
+    }
+
+    .custom-header a span:nth-child(2){ display: none; }
+    .custom-header a span:nth-child(1){ animation: wiggle 5s infinite; }
+    .custom-header div{ margin-right: 5px; }
+
+    #login-area{ top: .65rem; }
+    #login-area a{ color: white; text-shadow: none;}
+}
+.state_required{color:red!important}

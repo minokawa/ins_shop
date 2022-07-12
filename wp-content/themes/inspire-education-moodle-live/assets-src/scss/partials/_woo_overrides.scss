@@ -1,0 +1,18 @@
+
+.woocommerce {
+  .products ul::after,
+  .products ul::before,
+  ul.products::after,
+  ul.products::before {
+    display: none;
+    content: '';
+  }
+   .woocommerce-ordering select {
+    vertical-align: top;
+    width: 100%;
+    margin-right: 0px;
+    border-radius: 0px;
+    padding: 10px 10px;
+    max-width: 200px;
+}
+}

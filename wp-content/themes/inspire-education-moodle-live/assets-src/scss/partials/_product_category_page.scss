@@ -1,0 +1,25 @@
+ul.product-category {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+  width: 100%;
+  li {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    width: 33.33333%;
+    display: block;
+    margin-bottom: 30px;
+    position: relative;
+    span.product-title {
+      display: block;
+      padding: 20px 10px;
+    }
+  }
+}
+

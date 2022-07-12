@@ -1,0 +1,4 @@
+admin:
+ name: "Subscription Manager"
+ slug: "inspire-subscription-manager"
+ prefix: "inspire_subscription_manager"

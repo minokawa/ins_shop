@@ -1,0 +1,640 @@
+.woocommerce .products ul::after,
+.woocommerce .products ul::before,
+.woocommerce ul.products::after,
+.woocommerce ul.products::before {
+  display: none;
+  content: "";
+}
+.woocommerce .woocommerce-ordering select {
+  vertical-align: top;
+  width: 100%;
+  margin-right: 0px;
+  border-radius: 0px;
+  padding: 10px 10px;
+  max-width: 200px;
+}
+
+body.inspire-up div.clear {
+  display: none;
+}
+body.inspire-up .checkbox p, body.inspire-up form p {
+  float: none;
+  width: 100%;
+}
+body.inspire-up #billing_state_field, body.inspire-up #shipping_state_field, body.inspire-up #ccf_add_two_state_field {
+  margin: initial;
+}
+body.inspire-up .woocommerce form .form-row-first, body.inspire-up .woocommerce form .form-row-last, body.inspire-up .woocommerce-page form .form-row-first, body.inspire-up .woocommerce-page form .form-row-last {
+  float: none;
+}
+body.inspire-up .woocommerce ul.products li.product a img {
+  width: auto !important;
+  max-width: 41% !important;
+}
+body.inspire-up .woocommerce form .form-row .input-checkbox, body.inspire-up .woocommerce-page form .form-row .input-checkbox {
+  margin-right: 2px;
+  height: 18px;
+  width: 18px;
+}
+body.inspire-up .table_cols {
+  position: relative !important;
+  z-index: 9999999 !important;
+}
+body.inspire-up p.telephone {
+  display: none;
+}
+body.inspire-up div#brand {
+  background: url(https://shop.inspireeducation.net.au/wp-content/uploads/Inspire_Education_Logo_208x81-e1579831385106.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+body.inspire-up h2.course-cat {
+  padding: 10px 0px;
+}
+body.inspire-up .modal-dialog {
+  max-width: 720px;
+  margin: auto;
+}
+body.inspire-up .modal-dialog #product-courses {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.inspire-up .modal-dialog li {
+  margin-bottom: 30px;
+  width: 100%;
+}
+body.inspire-up .modal-dialog h2 {
+  text-transform: capitalize;
+  color: #002755;
+  font-size: 1.7em;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  margin-bottom: 0.5em;
+  font-weight: 200;
+  padding: 8px 0px;
+}
+body.inspire-up .modal-content {
+  padding: 25px 20px;
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+}
+body.inspire-up .modal .close {
+  position: sticky;
+  cursor: pointer;
+  height: 32px;
+  width: 50px;
+  display: block;
+  color: #fff;
+  z-index: 999;
+  float: right;
+  background-image: none;
+  font-size: 2.2em;
+  text-align: left;
+  background-color: #f26122;
+  padding: 5px;
+  margin-right: -20px;
+  text-shadow: none;
+  top: 0px;
+  right: 0px;
+  box-shadow: rgba(0, 0, 0, 0.4117647059) 0px 2px 5px 0px;
+}
+body.inspire-up .modal .close:hover {
+  background-color: #1a97db;
+  border: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+}
+body.inspire-up form.checkout h1.course-title {
+  margin: 20px 0px;
+}
+body.inspire-up form.checkout .select2-container {
+  width: 100% !important;
+}
+body.inspire-up form.checkout .select2-container--default .select2-selection--single {
+  border-radius: 0px;
+}
+body.inspire-up form.checkout .select2-container .select2-selection--single,
+body.inspire-up form.checkout .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 44px;
+}
+body.inspire-up form.checkout .select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 44px;
+}
+body.inspire-up form.checkout .select {
+  width: 100%;
+  float: none;
+  margin: 0px;
+}
+body.inspire-up form.checkout #step2 #billing_first_name_field,
+body.inspire-up form.checkout #step2 #billing_middle_name_field,
+body.inspire-up form.checkout #step2 #billing_last_name_field,
+body.inspire-up form.checkout #step2 #billing_work_phone_field,
+body.inspire-up form.checkout #step2 #billing_mobile_phone_field,
+body.inspire-up form.checkout #step2 #billing_work_mobile_field {
+  width: 32%;
+}
+body.inspire-up form.checkout #step2 .shipping-address-group, body.inspire-up form.checkout #step2 .secondary-address-group, body.inspire-up form.checkout #step2 .usi_num {
+  padding: 10px;
+  background-color: #f4f4f4;
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+body.inspire-up form.checkout #step2 .shipping-address-group h3, body.inspire-up form.checkout #step2 .secondary-address-group h3, body.inspire-up form.checkout #step2 .usi_num h3 {
+  padding: 10px 0px 10px 0px;
+  margin: 0px;
+  width: 100%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+body.inspire-up form.checkout #step2 .extra-details-group > p, body.inspire-up form.checkout #step2 .extra-details-group > div {
+  width: 48%;
+  padding: 0px;
+  margin: 0px;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .residency_field_wrapper,
+body.inspire-up form.checkout #step2 .extra-details-group .visa_disclaimer_field_wrapper {
+  width: 100%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .visa_disclaimer_field_wrapper {
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+body.inspire-up form.checkout #step2 .extra-details-group #ccf_country_birth_field {
+  width: 64%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group #ccf_date_birth_field {
+  width: 32%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .gender_field_wrapper {
+  width: 64%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .ethnicity_group_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .ethnicity_group_wrapper .ethnicity_field_wrapper {
+  width: 100%;
+}
+body.inspire-up form.checkout #step2 .checkout-form-personal-details {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+body.inspire-up form.checkout #step2 .company-invoice-toggle, body.inspire-up form.checkout #step2 .home-address-toggle {
+  width: 100%;
+}
+body.inspire-up form.checkout #step2 h5 {
+  display: block;
+  clear: both;
+  text-transform: none !important;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: normal;
+  margin: 10px 0px;
+}
+body.inspire-up form.checkout #step4 div.checkbox p:empty {
+  display: none;
+}
+body.inspire-up form.checkout #step4 div.checkbox h3 {
+  padding: 0px;
+  margin: 20px 0px 20px 0px;
+}
+body.inspire-up form.checkout .next, body.inspire-up form.checkout .previous {
+  background-color: #002755;
+  display: inline-block;
+  padding: 16px 16px;
+  text-decoration: none;
+  text-shadow: none;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+  background-image: none;
+  text-shadow: none;
+  border: none;
+  border-radius: 0px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+body.inspire-up form.checkout .next:hover, body.inspire-up form.checkout .previous:hover {
+  background-color: #1a97db;
+  border: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+}
+body.inspire-up .CTA-sidebar {
+  background: #002856;
+  padding: 10px;
+  color: #fff;
+  font-size: 1.3em;
+  text-shadow: none;
+}
+body.inspire-up .CTA-sidebar h3 {
+  color: #FFF;
+  font-weight: bold;
+}
+body.inspire-up .CTA-sidebar span.highlight1 {
+  font-weight: bold;
+  color: #dbff00;
+  text-transform: capitalize;
+  font-size: 1.1em;
+}
+body.inspire-up .CTA-sidebar span.highlight2 {
+  font-weight: bold;
+  color: #fb6435;
+}
+body.inspire-up .CTA-sidebar b.higlight-action {
+  font-size: 1.2em;
+}
+body.inspire-up .mobile-sticky .user-links {
+  display: none;
+}
+body.inspire-up ul.product-category {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+body.inspire-up ul.product-category li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  width: 33.33333%;
+  display: block;
+  margin-bottom: 30px;
+  position: relative;
+}
+body.inspire-up ul.product-category li span.product-title {
+  display: block;
+  padding: 20px 10px;
+}
+body.inspire-up ul.cart_list.product_list_widget {
+  padding: 0px;
+  margin: 0px;
+}
+body.inspire-up div.page-shop {
+  padding-top: 20px;
+}
+body.inspire-up a.close-reveal-modal {
+  background-color: #f26122;
+  color: #fff;
+  text-shadow: none;
+  padding: 0.618em 1em;
+  cursor: pointer;
+  margin: 5px;
+}
+body.inspire-up a.close-reveal-modal:hover {
+  background-color: #1a97db;
+  border: 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+}
+body.inspire-up .button, body.inspire-up .button-large, body.inspire-up .button-quiet, body.inspire-up #searchsubmit {
+  padding: 0.618em 1em !important;
+  background: none;
+  background-color: #002755 !important;
+  color: #fff;
+  font-size: 1em;
+  font-weight: normal;
+  border: none;
+  border-radius: 0px;
+  line-height: 1.4em;
+}
+body.inspire-up .button:hover, body.inspire-up .button-large:hover, body.inspire-up .button-quiet:hover, body.inspire-up #searchsubmit:hover {
+  background-color: #1a97db;
+  border: 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+}
+body.inspire-up .woocommerce #respond input#submit, body.inspire-up .woocommerce a.button, body.inspire-up .woocommerce button.button, body.inspire-up .woocommerce input.button {
+  font-size: 1.2em;
+  margin: 0;
+  line-height: 1;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  overflow: visible;
+  padding: 0.618em 1em;
+  font-weight: 700;
+  border-radius: 3px;
+  left: auto;
+  color: white;
+  background-color: #002755;
+  border: 0;
+  display: inline-block;
+  background-image: none;
+  box-shadow: none;
+  border-radius: 0px;
+  padding: 10px 20px;
+}
+body.inspire-up .woocommerce #respond input#submit:hover, body.inspire-up .woocommerce a.button:hover, body.inspire-up .woocommerce button.button:hover, body.inspire-up .woocommerce input.button:hover {
+  background-color: #1a97db;
+  border: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+}
+body.inspire-up .two-column-layout {
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
+}
+body.inspire-up .two-column-layout .column {
+  width: 50%;
+  display: block;
+  align-items: center;
+}
+body.inspire-up .two-column-layout .column div[itemprop=offers] {
+  text-align: center;
+  font-weight: bold;
+}
+body.inspire-up .two-column-layout .column form.cart .button {
+  vertical-align: middle;
+  float: none;
+  width: 100%;
+}
+body.inspire-up .two-column-layout .column form.cart div.quantity {
+  width: 100px;
+}
+body.inspire-up .two-column-layout .column .quantity input.text {
+  margin: 0px 0px 10px 0px;
+  padding: 5px 0px;
+  width: 100%;
+  display: block;
+  background-color: rgb(253, 253, 253);
+  z-index: 4;
+  border: 1px solid rgb(0, 39, 85);
+  color: #002755;
+  border-radius: 0px;
+  font-size: 1.2em;
+}
+body.inspire-up .two-column-layout form.cart {
+  margin-bottom: 2em;
+  align-items: flex-start;
+  display: flex;
+}
+body.inspire-up input.text, body.inspire-up input.title, body.inspire-up textarea {
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 4;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  margin: 0px 0px 10px 0px;
+  padding: 5px 0px;
+  width: 100%;
+  display: block;
+  background-color: rgb(253, 253, 253);
+  z-index: 4;
+  border: 1px solid rgb(0, 39, 85);
+  color: #002755;
+  border-radius: 0px;
+  font-size: 1.2em;
+}
+body.inspire-up .reveal-modal .cart_list li {
+  position: relative;
+  background-color: #f7f7f7;
+  margin-bottom: 20px;
+  display: flex;
+}
+body.inspire-up .reveal-modal .cart_list li h2 {
+  color: #002755;
+  font-size: 1.5em;
+}
+body.inspire-up .reveal-modal p.buttons {
+  font-size: 1;
+  display: flex;
+}
+body.inspire-up .reveal-modal p.buttons br {
+  display: none;
+}
+body.inspire-up ul#category-tabs-shop {
+  padding-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  body.inspire-up #content-wrap {
+    padding: 10px;
+  }
+  body.inspire-up ul.product-category li {
+    width: 48%;
+  }
+  body.inspire-up ul.product-category li span.product-title {
+    display: block;
+    padding: 20px 0px;
+    font-weight: bold;
+  }
+}
+@media only screen and (max-width: 450px) {
+  body.inspire-up .custom-header-container {
+    padding: 0px;
+    margin-left: 0px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  body.inspire-up h2.choose-cat-title {
+    padding: 10px;
+    line-height: 1.2em;
+  }
+  body.inspire-up #category-tabs-shop {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+  body.inspire-up #category-tabs-shop.clearfix:after, body.inspire-up #category-tabs-shop.clearfix:before {
+    display: none;
+  }
+  body.inspire-up #category-tabs-shop li {
+    width: 38%;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin: 0px;
+    display: block;
+    min-height: 70px;
+    margin-bottom: 10px;
+  }
+  body.inspire-up #category-tabs-shop li a {
+    font-size: 1.5em;
+    text-decoration: none;
+  }
+  body.inspire-up #category-tabs-shop li a span {
+    font-size: 0.8em;
+  }
+  body.inspire-up .post {
+    line-height: 1.4em;
+  }
+  body.inspire-up #header, body.inspire-up #head-inner {
+    display: none;
+  }
+  body.inspire-up form.checkout h1.course-title {
+    margin: 20px 0px;
+    text-align: center;
+    color: #fc6b3e;
+  }
+  body.inspire-up .course-cat {
+    display: none;
+  }
+  body.inspire-up .custom-header > div:first-child a {
+    display: none;
+  }
+  body.inspire-up .custom-header-container {
+    padding: 0px;
+    margin-left: 0px;
+  }
+  body.inspire-up .modal-dialog {
+    max-width: 720px;
+    margin: auto;
+  }
+  body.inspire-up .modal-dialog ul#product-courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  body.inspire-up .modal-dialog ul#product-courses li {
+    width: 47%;
+  }
+  body.inspire-up .modal-dialog ul#product-courses li img {
+    margin-bottom: 10px;
+  }
+  body.inspire-up .modal-dialog h2 {
+    color: #002755;
+    font-size: 1.6em;
+  }
+  body.inspire-up #step2 #billing_first_name_field,
+body.inspire-up #step2 #billing_middle_name_field,
+body.inspire-up #step2 #billing_last_name_field,
+body.inspire-up #step2 #billing_work_phone_field,
+body.inspire-up #step2 #billing_mobile_phone_field,
+body.inspire-up #step2 #billing_work_mobile_field {
+    width: 100% !important;
+  }
+  body.inspire-up .checkbox p, body.inspire-up form p {
+    width: 100% !important;
+  }
+  body.inspire-up div#foot-contact {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 98%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  body.inspire-up div#foot-contact > div, body.inspire-up div#foot-contact > a {
+    display: block;
+    width: 100%;
+  }
+  body.inspire-up #foot-nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  body.inspire-up #foot-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+  }
+  body.inspire-up #foot-nav ul li {
+    width: 32%;
+  }
+  body.inspire-up footer.footer.container {
+    padding: 10px;
+  }
+  body.inspire-up .mobile-sticky {
+    padding-top: 10px;
+    margin: 0px;
+    position: sticky;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    width: 100%;
+    height: 84px;
+    /* border: 1px solid #f7f6f7; */
+    box-shadow: rgba(0, 0, 0, 0.08) 1px 3px 4px 1px;
+    background-color: white;
+  }
+  body.inspire-up .mobile-sticky .user-links {
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+  }
+  body.inspire-up .mobile-sticky .user-links a {
+    display: block;
+    padding: 5px 10px;
+    background-color: #00bce8;
+    color: #fff;
+    text-decoration: none;
+  }
+  body.inspire-up .mobile-sticky .user-links a:hover {
+    background-color: #f26122;
+    border: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+  }
+  body.inspire-up .mobile-sticky #checkout-steps {
+    margin: 0px;
+  }
+  body.inspire-up .mobile-sticky #checkout-steps .step a {
+    top: 0px;
+    background-color: #fff;
+    width: 100%;
+    height: 42px;
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+  }
+  body.inspire-up .mobile-sticky #checkout-steps .step a.selected {
+    color: #fc6b3e;
+  }
+  body.inspire-up .mobile-sticky #checkout-steps .step a.selected span {
+    color: #fc6b3e;
+  }
+  body.inspire-up .mobile-sticky #checkout-steps .step a span {
+    padding: 0px;
+    font-size: 11px;
+    margin: 0px;
+  }
+}
+
+/*# sourceMappingURL=up-style.css.map */
