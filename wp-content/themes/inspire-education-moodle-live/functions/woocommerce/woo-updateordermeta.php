@@ -115,8 +115,9 @@ function add_shipping_order_meta( $order_id ) {
 		$res = update_post_meta( $order_id, $meta_key, $field_value );
 	}
 
-	update_post_meta($order_id, 'order_payment_date', time());
-  update_post_meta($order_id, 'order_id', $order_id);
+	// update_post_meta($order_id, 'order_payment_date', time());
+  // update_post_meta($order_id, 'order_id', $order_id);
+
 	update_post_meta( $order_id, 'company_invoice_flag', $_POST['ccf_comp_cont_phone'] );
 	update_post_meta( $order_id, '_billing_phone', $_POST['billing_home_phone'] );
 
