@@ -129,11 +129,14 @@ body.inspire-up form.checkout .select {
 }
 body.inspire-up form.checkout #step2 #billing_first_name_field,
 body.inspire-up form.checkout #step2 #billing_middle_name_field,
-body.inspire-up form.checkout #step2 #billing_last_name_field,
+body.inspire-up form.checkout #step2 #billing_last_name_field {
+  width: 32%;
+}
 body.inspire-up form.checkout #step2 #billing_work_phone_field,
 body.inspire-up form.checkout #step2 #billing_mobile_phone_field,
+body.inspire-up form.checkout #step2 #billing_home_phone_field,
 body.inspire-up form.checkout #step2 #billing_work_mobile_field {
-  width: 32%;
+  width: 24%;
 }
 body.inspire-up form.checkout #step2 .shipping-address-group, body.inspire-up form.checkout #step2 .secondary-address-group, body.inspire-up form.checkout #step2 .usi_num {
   padding: 10px;
@@ -190,6 +193,10 @@ body.inspire-up form.checkout #step2 .extra-details-group .ethnicity_group_wrapp
 }
 body.inspire-up form.checkout #step2 .extra-details-group .ethnicity_group_wrapper .ethnicity_field_wrapper {
   width: 100%;
+}
+body.inspire-up form.checkout #step2 div#english-level {
+  padding: 10px;
+  background-color: #f4f4f4;
 }
 body.inspire-up form.checkout #step2 .checkout-form-personal-details {
   display: flex;
@@ -439,6 +446,22 @@ body.inspire-up .reveal-modal p.buttons br {
 }
 body.inspire-up ul#category-tabs-shop {
   padding-top: 20px;
+}
+body.inspire-up form.checkout h3.event_title {
+  margin: 20px 0px 10px 0px;
+  padding: 0px;
+  font-size: 1em;
+  font-weight: bold;
+}
+body.inspire-up form.checkout h3.event_title span.course_title {
+  font-size: 1.2em;
+  display: block;
+  line-height: 2em;
+}
+body.inspire-up form.checkout .delivery_option_wrapper {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 768px) {

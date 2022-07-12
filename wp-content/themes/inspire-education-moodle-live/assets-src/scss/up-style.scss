@@ -10,9 +10,9 @@ body.inspire-up {
   @import "partials/mobile_sticky";
   @import "partials/product_category_page";
   ul.cart_list.product_list_widget {
-    padding: 0px;
-    margin: 0px;
-}
+		padding: 0px;
+		margin: 0px;
+	}
   div.page-shop {
       padding-top: 20px;
   }
@@ -164,8 +164,23 @@ body.inspire-up {
     padding-top: 20px;
   }
 
+  form.checkout h3.event_title {
+    margin: 20px 0px 10px 0px;
+    padding: 0px;
+    font-size: 1em;
+    font-weight: bold;
+		span.course_title {
+			font-size: 1.2em;
+			display: block;
+			line-height: 2em;
 
-
+		}
+	}
+	form.checkout .delivery_option_wrapper {
+		background-color: #f4f4f4;
+		padding: 10px;
+		margin-bottom: 10px;
+	}
 }
 
 @import "partials/media_queries";

@@ -801,273 +801,120 @@ function grab_ids_in_category_spacial($respoj, $key)
 
 /* Timetables for blended & full courses
 ------------------------------------------------------------------------------------ */
-function grab_ids_in_category($respoj, $key)
-{
+function grab_ids_in_category($respoj, $key){
+	if (empty($respoj)) { return; }
 
-    global $post, $woocommerce;
-    //print_r($respoj);
+	global $post, $woocommerce;
+	$mcourid = isset($respoj['moodle_courseid']) ? $respoj['moodle_courseid'] : 0;
 
-    // Get the Id from the product in the cart
-    foreach ($woocommerce->cart->get_cart() as $cart_item_key => $cart_item):
-        $product_id = $cart_item['product_id'];
-    endforeach;
+	// This script nly works on the last ITEM!!!!!!
+	foreach( WC()->cart->get_cart() as $cart_item ){ $product_id = $cart_item['data']->get_id(); }
+	$_categories = get_the_terms($product_id, 'product_cat');
+	foreach ($_categories as $_category) { $cats[] = $_category->term_id; }
 
+	//CHECK IF LASST MINUTE SPECIAL '476'
+	$its_a_last_minute_special = in_array('476', $cats);
 
-    // Grab the schedule that matches the $product_id
-    $args = array(
-        'post_type' => 'schedule_type',
-        'meta_key' => 'course_name',
-        'meta_query' => array(
-            array(
-                'key' => 'course_name', // name of custom field
-                'value' => $product_id, // matches exaclty "123", not just 123. This prevents a match for "1234"
-                'compare' => 'LIKE'
-            )
-        )
-    );
-    /* jaz added */
-    //print_R($respoj);
+	if ($its_a_last_minute_special) {
+		$max_seat_check = get_post_meta($product_id, 'max_occupied_seats_', true);
+		$maxtime1 = ('+' . $max_seat_check * 7) . ' day';
+		$lastdate = strtotime($maxtime1, $cdate);
+		$min_seat_check = get_post_meta($product_id, 'min_occupied_seats_', true);
+		$mintime = ('+' . $min_seat_check * 7) . ' day';
+		$mindate = strtotime($mintime, $cdate);
+	}
 
-
-    // die;
-
-    $_categories = get_the_terms($product_id, 'product_cat');
-    foreach ($_categories as $_category) {
-        $cats[] = $_category->term_id;
-    }
-
-    if (!empty($respoj)) {
-        if (!empty($respoj['moodle_courseid'])) {
-            $mcourid = $respoj['moodle_courseid'];
-        } else {
-            $mcourid = 0;
-        }
+	echo '<input type="hidden" value="' . $mcourid . '" name="moodlecourseid" id="moodlecourseid">';
+	$delivery_method = $respoj['delivery_method'];
+	$class_event = $respoj['class_event'];
 
 
-        echo '<input type="hidden" value="' . $mcourid . '" name="moodlecourseid" id="moodlecourseid">';
+	//DROPDOWNS FOR DELIVERY OPTIONS
+	if (!empty($delivery_method) && $class_event > 0 ) {
+		$delivery_group_fields  = '';
+		for ($evestr = 1; $evestr <= $class_event; $evestr++) {
 
-        if (!empty($respoj['delivery_method'])) {
-            /*  echo '<div id="distance_checkbox" class="checkbox clearfix">';
-            echo '<h5>Course Delivery <abbr class="required" title="required">* </abbr></h5>';
-            echo '<p class="form-row radio text required" id="distance_learning_field">';
-            foreach($respoj['delivery_method'] as $keymethod=>$valuemethod) {
-            if(strtolower($valuemethod) == 'full delivery') {
-            $idfor = 'ccf_delivery_full';
-            } else if(strtolower($valuemethod) == 'blended delivery') {
-            $idfor = 'ccf_delivery_blend';
-            } else {
-            $idfor = 'ccf_delivery_distance';
-            }
-            echo '<label for="'.$idfor.'" class="">';
-            echo '<input type="radio" name="ccf_delivery" id="'.$idfor.'" value="'. $keymethod .'" class="ccf_input_deliv input-checkbox"> '.$valuemethod;
-            echo '</label>';
-            }
-            echo "</div>";*/
+			$hidden_event_id =  '<input type="hidden" name="ccf_event_id[]" id="ccf_event_id_' . $evestr . '_' . $mcourid . '" class="select text" value ="' . $evestr . '">';
+			$event_label = '';
 
-            if($respoj['class_event'] > 0) {
-            // if (($respoj['location_' . $mcourid] > 0) && (!empty($respoj['event']))) {
-                /* for($evestr=1;$evestr<=$respoj['location_'.$mcourid];$evestr++) {  // Display no of events choose in course */
-                echo '<p>';
-                echo '<label class="" for="coursename">';
-                echo 'Events for course: ' . $respoj['coursename'];
-                echo '</label>';
-                echo '</p>';
-                for ($evestr = 1; $evestr <= $respoj['class_event']; $evestr++) {
-                    /* $look = 'false';
-                    foreach ($respoj['event'] as $check) {
+			if (empty($respoj['delivery_details'])) { continue; }
 
-                        if ($check['event_eventid'] == $evestr) {
-                            $look = 'true';
-                            continue;
-                        }
-                    }
-                    if ($look == 'false') {
-                        // echo $evestr;
-                        continue;
-                    } */
-                    echo '<p class="form-row text clearfix full-width validate-required" id="ccf_event_select_field_' . $evestr . '">';
-                    echo '<label class="" for="ccf_event_select">';
-                    // echo 'Select Event - ' . $evestr;
-                    echo 'Select Event - ' . $key;
-                    //echo '<abbr title="required" class="required"></abbr>';
-                    echo '</label>';
-                    /*echo '<select name="ccf_event_id[]" id="ccf_event_id_'.$evestr.'" class="select text" onchange=eventclass("'.$evestr.'")>';
-                    echo '<option value="">Please select Event</option>';
-                    for($evestrs=1;$evestrs<=$respoj['class_event'];$evestrs++) {
-                    echo '<option value="'. $evestrs .'">Event '. $evestrs .'</option>';
-                    }
-                    echo '</select>'; */
-                    echo '<input type="hidden" name="ccf_event_id[]" id="ccf_event_id_' . $evestr . '_' . $mcourid . '" class="select text" value ="' . $evestr . '">';
+			//GENERATE DELIVERY TYPE SELECT
+			foreach ($delivery_method as $keymethod => $valuemethod) {
+				$learning_field_id = 'distance_learning_field_blended_' . $evestr;
+				$label_text =  'Select Course Delivery Option - ' . $key;
+				if (strtolower($valuemethod) == 'full delivery') {
+					$learning_field_id = 'distance_learning_field_full_' . $evestr;
+					$label_text = 'Full Delivery Course location - ' . $evestr;
+				}
+				if (strtolower($valuemethod) == 'blended delivery') {
+					$learning_field_id = 'distance_learning_field_blended_' . $evestr;
+					$label_text =  'Blended Delivery Course location - ' . $evestr;
+				}
+				$event_label .= '<p class="form-row text clearfix full-width validate-required" id="' . $learning_field_id . '">
+												<label class="" for="' . $learning_field_id . '">' . $label_text . '<abbr title="required" class="required"></abbr></label>';
+			}
 
-                    echo '</p>';
+			$date = date('d-m-Y');
+			$cdate = strtotime($date);
+			$options = '<option selected=selected>Please select your desired location</option>';
+			$exist = array();
+			foreach ($respoj['event'] as $valuedetailq) {
+				$keydetail = $valuedetailq['event_locid'];
+				$render_condition = false;
 
-                    if (!empty($respoj['delivery_details'])) {
+				if ($its_a_last_minute_special) {
+					if($valuedetailq['event_timestart'] > $cdate && ($valuedetailq['event_timestart'] < $lastdate || $valuedetailq['event_timestart'] < $mindate) && !in_array($keydetail, $exist) && $valuedetailq['event_eventid'] == $evestr){
+						$render_condition = true;
+					}
+				}
 
-                        foreach ($respoj['delivery_method'] as $keymethod => $valuemethod) {
+				if($valuedetailq['event_timestart'] > $cdate && !in_array($keydetail, $exist) && $valuedetailq['event_eventid'] == $evestr){
+					$render_condition = true;
+				}
 
-                            if (strtolower($valuemethod) == 'full delivery') {
+				if ($render_condition) {
+					$options .= '<option id="ccf_course_' . $keydetail . '" value="' . $keydetail . '">' . $valuedetailq['location'] . '</option>';
+					$exist[] = $keydetail;
+				}
+			}
+			$delivery_options_select = '<select name="ccf_delivery_location_' . $key . '" id="ccf_delivery_location_' . $evestr . '_' . $mcourid . '" class="select text ccf_delivery_location_select" data-evestr="'. $evestr .'" data-mcourid="'. $mcourid .'">' .$options. '</select></p>';
 
-                                echo '<p class="form-row text clearfix full-width validate-required" id="distance_learning_field_full_' . $evestr . '">';
-                                echo '<label class="" for="distance_learning_field_full_' . $evestr . '">';
-                                echo 'Full Delivery Course location - ' . $evestr;
-                                echo '<abbr title="required" class="required"></abbr>';
-                                echo '</label>';
+			//GENERATE TIME TABLE SELECT
+			$time_table_select = '';
+			if (!empty($respoj['event'])) {
+				$time_table_select .= '<p class="form-row text clearfix full-width validate-required" id="full_location_timetable_new_' . $evestr . '">
+							<label class="" for="full_location_timetable_new_' . $key . '">
+							Select Timetable - ' . $key . '<abbr title="required" class="required"></abbr></label>
+							<select name="ccf_delivery_location_timetable_' . $key . '" id="ccf_delivery_location_timetable_full_' . $evestr . '_' . $mcourid . '" class="select text ccf_delivery_location_timetable_select"   data-evestr="'. $evestr .'" data-mcourid="'. $mcourid .'"> </select></p>';
+			}
 
-                            } else if (strtolower($valuemethod) == 'blended delivery') {
+			$delivery_group_fields .= $hidden_event_id . $event_label . $delivery_options_select . $time_table_select;
+		}
+		echo '<div class="delivery_option_wrapper">';
+		echo '<h3 class="event_title"> Select Event Date for : <span class="course_title">' . $respoj['coursename'] . '</span></h3> ';
+		echo $delivery_group_fields;
+		echo '</div>';
+	}
 
-                                echo '<p class="form-row text clearfix full-width validate-required" id="distance_learning_field_blended_' . $evestr . '">';
-                                echo '<label class="" for="distance_learning_field_full_' . $evestr . '">';
-                                echo 'Blended Delivery Course location - ' . $evestr;
-                                echo '<abbr title="required" class="required"></abbr>';
-                                echo '</label>';
-
-                            } else {
-
-                                echo '<p class="form-row text clearfix full-width validate-required" id="distance_learning_field_blended_' . $evestr . '">';
-                                echo '<label class="" for="distance_learning_field_full_' . $evestr . '">';
-                                echo 'Select Course Delivery Option - ' . $key;
-                                echo '<abbr title="required" class="required"></abbr>';
-                                echo '</label>';
-
-                            }
-                        } // end foreach
-
-                        $count        = 0;
-                        $totalevseats = 4;
-                        //echo '<pre>';
-                        //print_r($respoj['event']);
-
-                        if (in_array('476', $cats)) {
-
-                            $date = date('d-m-Y');
-                            ;
-                            $cdate          = strtotime($date);
-                            $max_seat_check = get_post_meta($product_id, 'max_occupied_seats_', true);
-
-                            $maxtime1 = ('+' . $max_seat_check * 7) . ' day';
-                            $lastdate = strtotime($maxtime1, $cdate);
-
-                            $min_seat_check = get_post_meta($product_id, 'min_occupied_seats_', true);
-
-                            $mintime = ('+' . $min_seat_check * 7) . ' day';
-                            $mindate = strtotime($mintime, $cdate);
-
-                            echo '<select name="ccf_delivery_location_' . $key . '" id="ccf_delivery_location_' . $key . '_' . $mcourid . '" class="select text" onchange=eventlocation(' . $evestr . ',' . $mcourid . ')>';
-                            echo '<option selected=selected>Please select your desired location</option>';
-                            $exist = array();
-                            foreach ($respoj['event'] as $valuedetailq) {
-                                // print_r($valuedetailq);
-                                // echo $cdate.'-';
-                                //echo $lastdate.'--';
-                                // echo $valuedetailq['event_timestart'].'---';
-                                $keydetail = $valuedetailq['event_locid'];
-
-                                if ($valuedetailq['event_timestart'] > $cdate && ($valuedetailq['event_timestart'] < $lastdate || $valuedetailq['event_timestart'] < $mindate) && !in_array($keydetail, $exist) && $valuedetailq['event_eventid'] == $evestr) {
-
-                                    echo '<option id="ccf_course_' . $keydetail . '" value="' . $keydetail . '">' . $valuedetailq['location'] . '</option>';
-                                    $exist[] = $keydetail;
-
-                                }
-                            } // end foreach
-                            unset($exist);
-                            echo "</select>";
-                            echo '</p>';
-
-
-                        } else {
-                            $date = date('d-m-Y');
-                            ;
-                            $cdate = strtotime($date);
-                            echo '<select name="ccf_delivery_location_' . $key . '" id="ccf_delivery_location_' . $evestr . '_' . $mcourid . '" class="select text" onchange=eventlocation(' . $evestr . ',' . $mcourid . ')>';
-                            echo '<option selected=selected>Please select your desired location</option>';
-
-                            /*  foreach($respoj['delivery_details'] as $keydetail => $valuedetail) {
-                            if($valuedetail['eventid'] == $evestr){
-                            echo '<option id="ccf_course_'. $keydetail .'" value="'. $keydetail .'">' . $valuedetail['location'] . '</option>';
-                            }
-                            } */
-                            foreach ($respoj['event'] as $valuedetailq) {
-
-                                $keydetail = $valuedetailq['event_locid'];
-
-                                if ($valuedetailq['event_timestart'] > $cdate && !in_array($keydetail, $exist) && $valuedetailq['event_eventid'] == $evestr) {
-
-                                    echo '<option id="ccf_course_' . $keydetail . '" value="' . $keydetail . '">' . $valuedetailq['location'] . '</option>';
-                                    $exist[] = $keydetail;
-
-                                }
-                            } // end foreach
-                            unset($exist);
-                            echo "</select>";
-                            echo '</p>';
-
-                        } // end if/else cat 476
-
-                    } // end if delivery_details
-
-                    if (!empty($respoj['event'])) {
-
-                        echo '<p class="form-row text clearfix full-width validate-required" id="full_location_timetable_new_' . $evestr . '">';
-                        echo '<label class="" for="full_location_timetable_new_' . $key . '">';
-                        echo 'Select Timetable - ' . $key;
-                        echo '<abbr title="required" class="required"></abbr>';
-                        echo '</label>';
-                        echo '<select name="ccf_delivery_location_timetable_' . $key . '" id="ccf_delivery_location_timetable_full_' . $evestr . '_' . $mcourid . '" class="select text" onchange=eventupdate("' . $evestr . '_' . $mcourid . '")>';
-                        // echo '<option value="">Please select your desired start date</option>';
-                        // foreach($respoj['event'] as $keyevent=>$valueevent) {
-                        // $firstdate = explode(',',$valueevent['event_fulltimestart']);
-                        // $enddate = explode(',',$valueevent['event_fulltimeduration']);
-                        // $startdate = $firstdate[0];
-                        // $starttime = $firstdate[1];
-                        // $enddates = $enddate[0];
-                        // $endtime = $enddate[1];
-                        // $finaldatelocation = $startdate.' - '.$enddates.', '.$starttime.' - '.$endtime;
-                        // echo '<option value="'.date('d/m/Y',$valueevent['event_timestart']).'">' . $finaldatelocation . '</option>';
-                        // }
-                        echo "</select>";
-                        echo "</p>";
-
-                    }
-
-                }
-                /* end class event repeat */
-
-            } // end if location course id
-
-        } // end of delivery method
-
-    } // end if respoj is not empty
-
-
-    //print_r( $respoj['delivery_method']);
-    echo "<div style='display:none;'>";
-    print_r($respoj);
-    echo "</div>";
-    if ($respoj['delivery_method'][7]) {
-        //if(($respoj['delivery_method'][7] == 'Distance') && (empty($respoj['event'])) && (empty($respoj['location_'.$mcourid]))){
-        if (($respoj['delivery_method'][7] == 'Distance') && (empty($respoj['event']))) {
-
-            echo '<div class="checkbox clearfix">
-        <h5>Would you like to Start ASAP ? Otherwise choose a start date below.</h5>
-        <p class="form-row radio "> <abbr class="required" title="required">* <span>required</span></abbr>
-          <label for="ccf_distance_start_asap" class="">
-            <input type="checkbox" name="ccf_distance_start_asap" id="ccf_distance_start_asap" value="Yes" class="one-of-valid input-checkbox garlic-auto-save">
-            Yes
-          </label>
-        </p>
-      </div>';
-
-
-            echo '<p class="form-row text required ccf_distance_start_date" id="ccf_distance_start_date_field">
-        <label for="ccf_distance_start_date" class="">
-          Distance Course Start Date  - dd/mm/yyyy
-        </label>
-        <input type="text"  autocomplete="off" class="input-text one-of-valid" name="ccf_distance_start_date" id="ccf_distance_start_date" placeholder="eg: dd/mm/yyyy" value="">
-      </p>';
-
-        }
-    } // end if respoj delivery method
-
+  //DROPDOWN FOR DELIVERY METHOD DISTANCE
+	if ($delivery_method[7] == 'Distance' && empty($respoj['event'])) {
+	echo '<div class="checkbox clearfix">
+					<h5>Would you like to Start ASAP ? Otherwise choose a start date below.</h5>
+					<p class="form-row radio "> <abbr class="required" title="required">* <span>required</span></abbr>
+						<label for="ccf_distance_start_asap" class="">
+							<input type="checkbox" name="ccf_distance_start_asap" id="ccf_distance_start_asap" value="Yes" class="one-of-valid input-checkbox garlic-auto-save">
+							Yes
+						</label>
+					</p>
+				</div>
+				<p class="form-row text required ccf_distance_start_date" id="ccf_distance_start_date_field">
+					<label for="ccf_distance_start_date" class="">
+						Distance Course Start Date  - dd/mm/yyyy
+					</label>
+					<input type="text"  autocomplete="off" class="input-text one-of-valid" name="ccf_distance_start_date" id="ccf_distance_start_date" placeholder="eg: dd/mm/yyyy" value="">
+				</p>';
+	}
 }
 
 
