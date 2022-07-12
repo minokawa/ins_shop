@@ -52,7 +52,7 @@ final class Dashboard {
 		$other_attributes = array( 'id' => 'subscription-button-deploy' );
 		echo '<div style="padding: 20px;display: flex;align-content: space-between;justify-content: space-evenly;    flex-direction: column;">';
 			submit_button( 'Deploy Subscriptions', 'primary', 'mapping-save', false,array( 'id' => 'subscription-button-submit', 'style' => 'width:100%; display:block; margin-bottom:20px' ));
-			submit_button( 'Save Subscriptions Setup', 'primary', 'subscription-save', false,array( 'id' => 'subscription-button-submit', 'style' => 'width:100%; display:block' ));			
+			submit_button( 'Save Subscriptions Setup', 'primary', 'subscription-save', false,array( 'id' => 'subscription-button-submit', 'style' => 'width:100%; display:block' ));
 
 		echo '</div>';
 	}
@@ -107,7 +107,7 @@ final class Dashboard {
 				$product = wc_get_product($key);
 				$product_name = $product->get_name();
 				$sku = $product->get_sku();
-				if(!$sku){ 	$sku = 'INS_TMP_' . $key.'_'; }
+				if(!$sku){ 	$sku = 'tmp_v_' . $key.'_'; }
 
 				//a. ASSIGN THE ATTRIBUTE
 			//	$default_term = $row[0];
@@ -129,7 +129,7 @@ final class Dashboard {
 
 
 					$variation = array(
-						'sku'=> 	$sku . '-' . $term_slug,
+						'sku'=> 	$sku . '-v-' . $term_slug,
 						'stock_quantity' => $variant_details['stock'],
 						'recurring_payment_price' => $variant_details['recurring_payment'],
 						'sign_up_fee' => $variant_details['upfront_payment'],
@@ -139,7 +139,7 @@ final class Dashboard {
 						'subscription_time_unit'=> strtolower($variant_details['time_unit']),
 						'subscription_time_interval'=>$variant_details['interval'],
 						'subscription_time_length'=> $variant_details['expire_after'],
-						'post_title'   => $product_name . ' (variation)',
+						'post_title'   => $product_name . ' (payment plan -'.$variant_details['name'].')',
 						'post_content' => '',
 						'post_status'  => 'publish',
 						'post_parent'  => $key,
@@ -199,6 +199,7 @@ final class Dashboard {
 		update_post_meta( $variation_id, '_manage_stock', $manage_stock );
 		update_post_meta( $variation_id, 'attribute_' . $ATTR_SLUG,  $term_slug );
 		update_post_meta( $variation_id, '_virtual', 1 );
+		update_post_meta( $variation_id, '_name',  $variation['post_title'] );
 
 		$price = 		($subscription_time_interval * $recurring_payment_price ) + 	$sign_up_fee;
 		update_post_meta( $variation_id, '_price', $price );  //Total, recurring total and upofront??
