@@ -10,6 +10,20 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+function dashesToCamelCase($string, $capitalizeFirstCharacter = true) {
+
+    $str = ucwords(str_replace('-', ' ', $string));
+
+    if (!$capitalizeFirstCharacter) {
+        $str[0] = strtolower($str[0]);
+    }
+
+    return $str;
+}
+
+
+
+
 if ( ! function_exists( 'print_attribute_radio' ) ) {
     function print_attribute_radio( $checked_value, $value, $label, $name, $key  ) {
         // This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
@@ -18,13 +32,16 @@ if ( ! function_exists( 'print_attribute_radio' ) ) {
         $input_name = 'attribute_' . esc_attr( $name ) ;
         $esc_value = esc_attr( $value );
         $id = esc_attr( $name . '_v_' . $value );
-        $filtered_label = apply_filters( 'woocommerce_variation_option_name', $label );
-        printf( '<label for="%3$s"><input type="radio" name="%1$s" value="%2$s" data-key="%3$s" id="%4$s" %5$s>%6$s</label>', $input_name, $esc_value,$key , $id, $checked, $filtered_label );
+        $filtered_label = dashesToCamelCase( $label );
+
+        printf( '<label for="%3$s"><input type="radio" class="radio-variation" name="%1$s" value="%2$s" data-key="%3$s" id="%4$s" %5$s>%6$s</label>', $input_name, $esc_value,$key , $id, $checked, $filtered_label );
     }
 }
 
 
 global $product;
+
+
 
 $attribute_keys = array_keys( $attributes );
 $user_id        = get_current_user_id();
@@ -53,7 +70,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                     <tbody>
                         <?php foreach ( $attributes as $name => $options ) : ?>
                             <tr>
-                                <h3>Purchase options </h3>
+                                <h3>Payment plans </h3>
                                 <td class="value">
                                 <?php
                                 $sanitized_name = sanitize_title( $name );
@@ -131,7 +148,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 							/**
 							 * Post WC 3.4 the woocommerce_after_add_to_cart_button hook is triggered by the callback @see woocommerce_single_variation_add_to_cart_button() hooked onto woocommerce_single_variation.
 							 */
-							if ( wcs_is_woocommerce_pre ( '3.4' ) ) {
+							if ( WC_Subscriptions::is_woocommerce_pre( '3.4' ) ) {
 								do_action( 'woocommerce_after_add_to_cart_button' );
 							}
 						?>

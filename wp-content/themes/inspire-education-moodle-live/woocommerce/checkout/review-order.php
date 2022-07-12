@@ -15,11 +15,13 @@ global $woocommerce;
 global $post;
 
 // $available_methods = $woocommerce->shipping->get_available_shipping_methods();
-
-if( function_exists('get_product') ){
-	$prod = wc_get_product( $post->ID );
-	// $prod_type = $prod->product_type;
+if($post){
+	if( function_exists('get_product') ){
+		$prod = wc_get_product( $post->ID );
+		// $prod_type = $prod->product_type;
+	}
 }
+
 $is_ajax = true;
 
 ?>

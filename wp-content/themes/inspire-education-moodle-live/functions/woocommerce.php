@@ -208,8 +208,8 @@ function marky_custom_price_string($pricestring)
     return $newprice;
 
 }
-add_filter('woocommerce_subscriptions_product_price_string', 'marky_custom_price_string');
-add_filter('woocommerce_subscription_price_string', 'marky_custom_price_string');
+//add_filter('woocommerce_subscriptions_product_price_string', 'marky_custom_price_string');
+//add_filter('woocommerce_subscription_price_string', 'marky_custom_price_string');
 
 
 // Allow duplicate SKU's
@@ -426,7 +426,7 @@ function translate_signup($translated)
 }
 
 // Edit Subscription Price String
-add_filter('woocommerce_subscriptions_product_price_string', 'my_subs_price_string');
+//add_filter('woocommerce_subscriptions_product_price_string', 'my_subs_price_string');
 function my_subs_price_string($pricestring)
 {
     global $woocommerce, $product;
@@ -559,7 +559,7 @@ function my_subs_price_string($pricestring)
     return $newprice;
 }
 
-add_filter('woocommerce_subscription_price_string', 'my_subs_price_string_cart');
+//add_filter('woocommerce_subscription_price_string', 'my_subs_price_string_cart');
 function my_subs_price_string_cart($pricestring)
 {
     global $woocommerce, $product;

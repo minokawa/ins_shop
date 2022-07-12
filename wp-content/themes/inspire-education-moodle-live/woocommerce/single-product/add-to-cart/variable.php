@@ -17,9 +17,6 @@ $attribute_keys = array_keys( $attributes );
 
 do_action('woocommerce_before_add_to_cart_form'); ?>
 
-<script type="text/javascript">
-    var product_variations_<?php echo $post->ID; ?> = <?php echo json_encode( $available_variations ) ?>;
-</script>
 
  <?php
  $ctr = 0;
@@ -105,7 +102,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
     <div class="variations  <?php if(!empty($cc)) { echo $cc; } ?>">
             <?php $loop = 0; foreach ( $attributes as $name => $options ) : $loop++; ?>
 
-					<h3>Purchase options</h3>
+					<h3>Payment plans</h3>
                     <fieldset itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                         <meta itemprop="priceCurrency" content="AUD" />
                         <p class="full"><em>Please choose your preferred payment option below!</em></p>

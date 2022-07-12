@@ -346,8 +346,6 @@
 
 	}
 
-
-
 		// THIS ROUTINE IS TRIGGERED WHEN USER IS STILL IN CHECKOUT PAGE
 	add_action('woocommerce_checkout_order_processed', 'send_user_to_moodle', 10, 1);
 	function send_user_to_moodle($order_id){
@@ -380,14 +378,6 @@
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
 			$response = curl_exec($ch);
-
-			// $tmp_dir = wp_upload_dir() ;
-			// $tmp_dir = $tmp_dir['basedir']. '/inspire_log';
-			// $response_data_sso2 =  $tmp_dir  . '/1_enrol_response_sso.html';
-			// $payload_data_sso2 =  $tmp_dir  . '/1_enrol_payload_sso.html';
-
-			// file_put_contents($response_data_sso2, $response);
-			// file_put_contents($payload_data_sso2, $data);
 			curl_close($ch);
 		}
 	}
@@ -403,7 +393,6 @@
 		$product_in_order = false;
 		$order = new WC_Order($order_id );
 		$items = $order->get_items();
-
 
 		foreach ( $items as $item ) {
 			$terms = get_the_terms( $item['product_id'], 'product_cat' );
@@ -426,9 +415,18 @@
 
 			foreach($orde as $bb){
 				foreach($bb as $aa){
-					$ordeb[] = $wpdb->get_results("SELECT * FROM wp_postmeta WHERE (meta_key = '_sku' AND post_id = '". $aa->ID ."')");
+
+					$prod_sku  = $wpdb->get_results("SELECT * FROM wp_postmeta WHERE (meta_key = '_sku' AND post_id = '". $aa->ID ."')");
+
+					$parsid = explode('-v-', $prod_sku[0]->meta_value);
+					$prod_sku[0]->meta_value = $parsid[0];
+
+					$ordeb[] = $prod_sku;
+
 				}
 			}
+
+
 
 			$data['data'] = serialize($ordeb);
 			$current_user = wp_get_current_user();
@@ -466,19 +464,6 @@
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
 			$response = curl_exec($ch);
-			// $tmp_dir = wp_upload_dir() ;
-			// $tmp_dir = $tmp_dir['basedir']. '/inspire_log';
-			// $response_data_sso2 =  $tmp_dir  . '/2_enrol_response_sso2.html';
-			// $payload_data_sso2 =  $tmp_dir  . '/2_enrol_payload_data_sso2.html';
-			// $payload_sku_sso2 =  $tmp_dir  . '/2_enrol_payload_sku_sso2.html';
-			// $payload_customer_sso2 =  $tmp_dir  . '/2_enrol_payload_customer_sso2.html';
-
-			// file_put_contents(	$response_data_sso2, $response);
-
-			// file_put_contents(	$payload_data_sso2, $data['data']);
-			// file_put_contents(	$payload_sku_sso2, $data['sku']);
-			// file_put_contents(	$payload_customer_sso2, $data['customer']);
-
 			curl_close($ch);
 		}
 

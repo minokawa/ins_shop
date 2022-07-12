@@ -51,6 +51,7 @@
   $("#nav li .sub, #nav li .sub-menu").css({ opacity: "0" });
   $("#nav li").hoverIntent({ sensitivity: 1,	interval: 1, over: over_callback, timeout: 100, out: out_callback});
   var is_utm_page =$('#course-form-modal, .page-template-page-course-sub-button-left-new-php, .page-template-page-course-sub-button-left-new-autoform-php, .page-template-page-course-sub-button-left-new-autoform-short-php, .page-template-page-thankyou-php, .courses_page').length;
+
   if( is_utm_page > 0 ){
     document.getElementById("utm_source__c").value =  getURLParams()["utm_source"];
     document.getElementById("utm_medium__c").value = getURLParams()["utm_medium"];
@@ -118,7 +119,7 @@
   var checkout_page = curr_page;
   var clickable_steps = checkout_page.find('#checkout-steps');
   checkout_page.find('#checkout').garlic();
-  checkout_page.find('select').select2().on('change', function() { $(this).trigger('blur');});
+  checkout_page.find('select').select2().on('change', function() { $(this).trigger('blur');} );
   checkout_page.on( 'applied_coupon_in_checkout removed_coupon_in_checkout', function(event, coupon){
     checkout_page.trigger( 'update_checkout' );
     location.reload();
@@ -145,10 +146,10 @@
       clickable_steps.find('li[data-fieldset="' + target_fieldset + '"] ~ li').removeClass('active in');
       Cookies.set("checkout_step", 'step'+target_fieldset , { expires: 7, path: '/' });
     }).then(()=>{
-      //Scroll page up to the woo info wrapper
 
-			console.log('trig up');
-			$( document.body ).trigger( 'update_checkout' );
+			if(target_fieldset != 5){
+				$( document.body ).trigger( 'update_checkout' );
+			}
 
       $('html, body').stop().animate({
           'scrollTop': jQuery('.woocommerce-info').offset().top
@@ -169,6 +170,7 @@
   });
 
   checkout_page.find('#next-personal').click(function(){
+
     var newstate = $("#billing_state").val();
     if(newstate==''||newstate==null||newstate=='undefined'){ return false; }
     var product_id = Cookies.get('product');
@@ -178,7 +180,7 @@
       State 	          : $('#billing_state').val(),
       Phone 	          : $('#billing_mobile_phone').val(),
       Email 	          : $('#billing_email').val(),
-      Shop_Course_Name__c : lookUp[product_id],
+      Shop_Course_Name__c : product_look_up[product_id],
       LeadSource          : 'Web Lead - Shop'
     };
     if (typeof Munchkin != "undefined") {
@@ -352,3 +354,180 @@
     // Make sure 'Place Order' button is enabled on initial load
     $('#place_order').prop('disabled', false);
 })();
+
+
+jQuery(document).ready(function($) {
+
+	function eventlocationname(eventids,courseid) {
+	 // var courseid = document.getElementById('moodlecourseid').value;
+		var custom_id = document.getElementById('custom_id');
+		var spacialevent = '';
+		if(custom_id){
+			spacialevent = 'spacial';
+		}
+
+		var ids1 = 'ccf_event_id_'+eventids;
+		var eventid = eventids;
+		var ids2 = 'ccf_delivery_location_'+eventids+'_'+courseid;
+		var locationid = jQuery( "#"+ids2+" option:selected" ).val();
+
+		jQuery.ajax({
+			method: "GET",
+			url: home_url +  "/ajax_moodle.php",
+			data: { course_id: courseid, eventid_id: eventid,location_id:locationid,action:'eventlocation',eventtype:spacialevent,display:'name' }
+		}).done(function( msg ) {
+			var valueto = 'ccf_delivery_location_timetable_full_'+eventids+'_'+courseid;
+			document.getElementById(valueto).innerHTML = msg;
+		});
+	}
+
+	function eventclass(eventids) {
+		var courseid = document.getElementById('moodlecourseid').value;
+		var ids = 'ccf_event_id_'+eventids;
+		var eventid = jQuery( "#"+ids+" option:selected" ).val();
+
+		jQuery.ajax({
+			method: "GET",
+			url: home_url +  "/ajax_moodle.php",
+			data: { course_id: courseid, eventid_id: eventid,action:'eventclass' }
+		})
+		.done(function( msg ) {
+			var valueto = 'ccf_delivery_location_'+eventids;
+			document.getElementById(valueto).innerHTML = msg;
+		});
+
+	}
+
+
+
+	function eventupdatetime(event) {
+		var eventid = event.value;
+		jQuery.ajax({
+			method: "GET",
+			url: home_url +  "/ajax_moodle.php",
+			data: { evid: eventid ,eventtyme:'time' }
+		}).done(function( msg ) {
+			//alert(msg);
+			//var valueto = 'ccf_delivery_location_timetable_full_'+eventids;
+			document.getElementById('time_event').value = msg;
+		});
+	}
+
+
+	$('.ccf_delivery_location_select').on('blur', function(){
+
+		eventids = $(this).data('evestr');
+		courseid = $(this).data('mcourid');
+
+		var custom_id = document.getElementById('custom_id');
+		var spacialevent = '';
+
+		if(custom_id){ spacialevent = 'spacial'; }
+
+		var ids1 = 'ccf_event_id_'+eventids;
+		var eventid = eventids;
+		var ids2 = 'ccf_delivery_location_'+eventids+'_'+courseid;
+
+		var locationid = jQuery( "#"+ids2+" option:selected" ).val();
+		var dateId = 'ccf_delivery_location_timetable_full_'+eventids+'_'+courseid;
+
+		document.getElementById(dateId).innerHTML = "<option>Updating timetables...</option>";
+
+		jQuery.ajax({
+			method: "GET",
+			url: home_url +  "/ajax_moodle.php",
+			data: { course_id: courseid, eventid_id: eventid,location_id:locationid,action:'eventlocation',eventtype:spacialevent }
+		}).done(function( msg ) {
+			var valueto = 'ccf_delivery_location_timetable_full_'+eventids+'_'+courseid;
+			document.getElementById(valueto).innerHTML = msg;
+		});
+
+		$('#'+dateId).on('change', function() {
+			var locationstring = $('#'+ids2+' option:selected').text();
+			var datestring = $('#'+dateId+' option:selected').text();
+
+			$('#course_location_'+eventids).val(locationstring);
+			$('#course_date_'+eventids).val(datestring);
+		});
+
+	})
+
+	$('.ccf_delivery_location_timetable_select').on('blur', function(){
+		var evestr = $(this).data('evestr');
+		var mcourid = $(this).data('mcourid');
+		var ids = 'ccf_delivery_location_timetable_full_'+  evestr + '_' + mcourid;
+		var eventid = jQuery( "#"+ids).val();
+		jQuery('#ccf_event_id_'+ evestr + '_' + mcourid).val(eventid);
+	});
+
+
+
+
+
+
+	$('#full_location_timetable').slideUp();
+	$('#full_location_timetable_new').slideUp();
+	// for tree val 1
+	if ($('.ccf_input_deliv:checked')) {
+
+	$('#full_location_timetable').slideDown();
+
+	} else  {
+		$('#full_location_timetable').slideUp();
+	}
+
+	$('.ccf_input_deliv:input').change(function() {
+		if ($('.ccf_input_deliv:checked')) {
+			$('#full_location_timetable').slideDown();
+		} else  {
+			$('#full_location_timetable').slideUp();
+			$('#full_location_timetable_new').slideUp();
+		}
+	});
+
+	// for tree val 2
+	//$( "#myselect option:selected" ).text();
+	$('#ccf_delivery_location:input').change(function() {
+		var locationid = $( "#ccf_delivery_location option:selected" ).val();
+
+		if(locationid > 0) {
+			var courseid = document.getElementById('moodlecourseid').value;
+			$.ajax({
+				method: "GET",
+				url: home_url +  "/ajax_moodle.php",
+				data: { course_id: courseid, location_id: locationid }
+		})
+		.done(function( msg ) {
+			document.getElementById('ccf_delivery_location_timetable_full_1').innerHTML = msg;
+		});
+
+		// ajax wil run here
+		$('#full_location_timetable_new').slideDown();
+
+		} else {
+			$('#full_location_timetable_new').slideUp();
+		}
+	});
+
+	setTimeout( function(){
+		var locationid = $( "#ccf_delivery_location option:selected" ).val();
+
+		if(locationid > 0) {
+			var courseid = document.getElementById('moodlecourseid').value;
+			$('#full_location_timetable_new').slideDown();
+
+			$.ajax({
+				method: "GET",
+				url: home_url + "/ajax_moodle.php",
+				data: { course_id: courseid, location_id: locationid,action:'normal' }
+			}).done(function( msg ) {
+				var details = msg.split("__jaz__");
+				var ndet = details[1].split("?>");
+				document.getElementById('ccf_delivery_location_timetable_full_1').innerHTML = details[0]+ndet[1];
+			});
+
+		} else {
+			$('#full_location_timetable_new').slideUp();
+		}
+	}, 5000);
+});
