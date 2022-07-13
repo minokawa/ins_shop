@@ -119,6 +119,18 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 <?php do_action( 'woocommerce_email_order_meta', $order, false ); ?>
 
 <?php
+	$items = $order->get_items();
+	$custom_messsage_skus = ['INS02584','INS02586','INS02582'];
+	foreach ( $order->get_items() as $item_id => $item ) {
+		$sku = $item->get_product()->get_sku();
+		if (in_array($sku, $custom_messsage_skus)) {
+			echo "<p><b>Scheduling instruction: </b>To book and confirm your preferred date, please email onlineenrolments@inspireeducation.net.au, or call 1800 506 509, after successfully enrolling in your first aid course. Enrolments over weekends and holidays will be attended to on the following business day.</p>";
+			break;
+		}
+	}
+?>
+
+<?php
 
 	// Get Order Paid date
     $order_id = $order->id;
