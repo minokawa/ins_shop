@@ -103,10 +103,7 @@
 
 //Shop Page
 (function () {
-
-
   $('input[value="One Upfront Payment"]').siblings( ".price" ).css( "color", "#ff0000" );
-
   var hash = window.location.hash.replace("#", "");
   Cookies.set("referral", hash, { expires: 7, path: '/' });
 })();
