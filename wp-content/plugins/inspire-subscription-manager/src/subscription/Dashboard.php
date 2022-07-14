@@ -213,7 +213,7 @@ final class Dashboard {
 		update_post_meta( $variation_id, '_date_on_sale_to',  $sale_date_end);
 		update_post_meta( $variation_id, '_subscription_period',	$subscription_time_unit); //day, week, month or year.
 		update_post_meta( $variation_id, '_subscription_period_interval', 	$subscription_time_interval ); //billing schedule interval, e.g. 2
-		update_post_meta( $variation_id, '_subscription_length', $subscription_length );	//time to wait between sign-up & autoexpiration
+		update_post_meta( $variation_id, '_subscription_length', $subscription_time_length );	//time to wait between sign-up & autoexpiration
 		update_post_meta( $variation_id, '_subscription_trial_period',  	$subscription_time_unit); //unit of time before first cylcle paement e.g. week, month or year.
 		update_post_meta( $variation_id, '_subscription_trial_length', $is_upfront ); //this is always 1($subscription_time_unit) when upfront
 

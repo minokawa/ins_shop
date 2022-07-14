@@ -259,7 +259,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'label' => 'Expire After',
 						'name' => 'expire_after',
 						'type' => 'number',
-						'instructions' => 'Expire after how many days (Subscription will be deactivated)',
+						'instructions' => 'Expire after Nth <b>Time Unit</b> (Must be multiple of <b>Payment Interval</b>)',
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
