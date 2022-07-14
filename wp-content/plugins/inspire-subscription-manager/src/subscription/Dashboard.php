@@ -38,7 +38,6 @@ final class Dashboard {
 			acf_add_options_page( $args );
 	}
 
-
 	public function custom_screen_ui() {
 		$screen = get_current_screen();
 		$plugin_screen_id = 'toplevel_page_' . self::$config['slug'];
@@ -126,8 +125,6 @@ final class Dashboard {
 
 					$variant_details = $subscription_lookup['plans'][$term_slug];
 
-
-
 					$variation = array(
 						'sku'=> 	$sku . '-v-' . $term_slug,
 						'stock_quantity' => $variant_details['stock'],
@@ -211,6 +208,8 @@ final class Dashboard {
 		update_post_meta( $variation_id, '_sale_price', $sale_price );//Sale price
 		update_post_meta( $variation_id, '_date_on_sale_from',  $sale_date_start );
 		update_post_meta( $variation_id, '_date_on_sale_to',  $sale_date_end);
+		update_post_meta( $variation_id, '_downloadable',  1);
+
 		update_post_meta( $variation_id, '_subscription_period',	$subscription_time_unit); //day, week, month or year.
 		update_post_meta( $variation_id, '_subscription_period_interval', 	$subscription_time_interval ); //billing schedule interval, e.g. 2
 		update_post_meta( $variation_id, '_subscription_length', $subscription_time_length );	//time to wait between sign-up & autoexpiration

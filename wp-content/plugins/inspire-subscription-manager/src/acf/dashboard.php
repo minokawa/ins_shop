@@ -128,7 +128,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'collapsed' => '',
 				'min' => 0,
 				'max' => 0,
-				'layout' => 'table',
+				'layout' => 'block',
 				'button_label' => '',
 				'sub_fields' => array(
 					array(
@@ -140,7 +140,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
-							'width' => '',
+							'width' => '24.5',
 							'class' => '',
 							'id' => '',
 						),
@@ -159,7 +159,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
-							'width' => '',
+							'width' => '24.5',
 							'class' => '',
 							'id' => '',
 						),
@@ -178,7 +178,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
-							'width' => '',
+							'width' => '24.5',
 							'class' => '',
 							'id' => '',
 						),
@@ -204,7 +204,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
-							'width' => '',
+							'width' => '24.5',
 							'class' => '',
 							'id' => '',
 						),
@@ -225,7 +225,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
-							'width' => '',
+							'width' => '24.5',
 							'class' => '',
 							'id' => '',
 						),
@@ -244,7 +244,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
-							'width' => '',
+							'width' => '24.5',
 							'class' => '',
 							'id' => '',
 						),
@@ -263,7 +263,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
-							'width' => '',
+							'width' => '24.5',
 							'class' => '',
 							'id' => '',
 						),
@@ -284,7 +284,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
-							'width' => '',
+							'width' => '24.5',
 							'class' => '',
 							'id' => '',
 						),
@@ -293,6 +293,25 @@ if( function_exists('acf_add_local_field_group') ):
 						'prepend' => '',
 						'append' => '',
 						'maxlength' => '',
+					),
+					array(
+						'key' => 'field_62cfa3667828a',
+						'label' => 'Custom Price String',
+						'name' => 'custom_price_string',
+						'type' => 'textarea',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '100',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'placeholder' => '',
+						'maxlength' => '',
+						'rows' => '',
+						'new_lines' => '',
 					),
 				),
 			),

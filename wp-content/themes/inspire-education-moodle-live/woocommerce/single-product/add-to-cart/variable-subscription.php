@@ -10,17 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-function dashesToCamelCase($string, $capitalizeFirstCharacter = true) {
-
-    $str = ucwords(str_replace('-', ' ', $string));
-
-    if (!$capitalizeFirstCharacter) {
-        $str[0] = strtolower($str[0]);
-    }
-
-    return $str;
-}
-
 
 
 
@@ -32,7 +21,7 @@ if ( ! function_exists( 'print_attribute_radio' ) ) {
         $input_name = 'attribute_' . esc_attr( $name ) ;
         $esc_value = esc_attr( $value );
         $id = esc_attr( $name . '_v_' . $value );
-        $filtered_label = dashesToCamelCase( $label );
+        $filtered_label = ucwords(str_replace('-', ' ',  $label));
 
         printf( '<label for="%3$s"><input type="radio" class="radio-variation" name="%1$s" value="%2$s" data-key="%3$s" id="%4$s" %5$s>%6$s</label>', $input_name, $esc_value,$key , $id, $checked, $filtered_label );
     }
@@ -40,14 +29,9 @@ if ( ! function_exists( 'print_attribute_radio' ) ) {
 
 
 global $product;
-
-
-
 $attribute_keys = array_keys( $attributes );
 $user_id        = get_current_user_id();
-
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
-
 
 <form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo htmlspecialchars( wcs_json_encode( $available_variations ) ) ?>">
 	<?php do_action( 'woocommerce_before_variations_form' ); ?>
@@ -88,19 +72,17 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                                         if ( taxonomy_exists( $name ) ) {
                                             // Get terms if this is a taxonomy – ordered. We need the names too.
                                             $terms = wc_get_product_terms( $product->get_id(), $name, array( 'fields' => 'all' ) );
-
                                             foreach ( $terms as $term ) {
-                                                if ( ! in_array( $term->slug, $options ) ) {
-                                                    continue;
-                                                }
-                                                print_attribute_radio( $checked_value, $term->slug, $term->name, $sanitized_name,0 );
+																							if ( ! in_array( $term->slug, $options ) ) {
+																								continue;
+																							}
+																							print_attribute_radio( $checked_value, $term->slug, $term->name, $sanitized_name,0 );
                                             }
                                         } else {
                                             $tick = 0;
                                             foreach ( $options as $key => $option ) {
-                                                $price = ma_customised_price_string($option);
-                                                print_attribute_radio( $checked_value, $option, $price, $sanitized_name,$key  );
-                                                $tick++;
+																							print_attribute_radio( $checked_value, $option, $option, $sanitized_name,$key  );
+																							$tick++;
                                             }
                                         }
                                     }
