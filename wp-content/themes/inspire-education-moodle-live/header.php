@@ -115,6 +115,7 @@ obApi('track', 'PAGE_VIEW');
 
     <div class='custom-header-container just-center ff-museo w-100p white'>
       <div class='custom-header flex '>
+
         <div><a href='tel:1800506509'><span class='fas fa-phone-alt blue100'></span> <span class='fw-900'>1800 506 509</span></a></div>
         <div><a href='mailto:enquiries@inspireeducation.net.au'><span class='fas fa-envelope blue100'></span><span class='fw-300'>enquiries@inspireeducation.net.au</span></a>
         </div>
@@ -122,7 +123,19 @@ obApi('track', 'PAGE_VIEW');
       </div>
     </div>
 
+		<div id="header-mobile" lass="wrapper clearfix">
+		<a href="https://www.inspireeducation.net.au" class='logo'> <img width="" height="" alt="Inspire Education Pty Ltd" class=" lazyloaded" src="https://www.inspireeducation.net.au/assets/uploads/2020/12/insipre-logo.svg"></a>
+		<a href="tel:1800506509"><span class="fas fa-phone-alt blue100"></span> <span class="fw-900">1800 506 509</span></a>
+		<a href="mailto:enquiries@inspireeducation.net.au"><span class="fas fa-envelope blue100"></span><span class="fw-300">enquiries@inspireeducation.net.au</span></a>
+		<a href="<?php echo get_site_url();?>/shop">Enrol Now/Shop</a>
+
+		<a href="<?php echo get_site_url();?>/cart" target="_blank">Cart(<?php echo WC()->cart->get_cart_contents_count() ?>)</a>
+
+		</div>
+
       <div id="header" role="banner" class="wrapper clearfix">
+
+
       	<header id="head-inner" class="container">
             <div itemprop="brand" itemscope itemtype="http://schema.org/Brand" id="brand">
               <!--[if (gt IE 9)|!(IE)]><!-->

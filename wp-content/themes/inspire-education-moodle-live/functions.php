@@ -247,10 +247,10 @@ add_action( 'wp_enqueue_scripts', 'load_inspire_assets' );
 
 function load_inspire_assets() {
 	$translation_array = get_sku_json();
-	wp_enqueue_style('legacy-stylesheet', get_stylesheet_directory_uri() . '/assets/css/legacy-style.css', array(), '', 'all' );
+	wp_enqueue_style('legacy-stylesheet', get_stylesheet_directory_uri() . '/assets/css/legacy-style.css', array(),  1.38, 'all');
 	wp_enqueue_style('font-awesome-free', '//use.fontawesome.com/releases/v5.12.0/css/all.css' );
-	wp_enqueue_style('main-stylesheet', get_template_directory_uri() . '/assets/css/style.css');
-	wp_enqueue_style('up-stylesheet', get_template_directory_uri() . '/assets/css/up-style.css');
+	wp_enqueue_style('main-stylesheet', get_template_directory_uri() . '/assets/css/style.css', array(),  1.38, );
+	wp_enqueue_style('up-stylesheet', get_template_directory_uri() . '/assets/css/up-style.css', array(),  1.38,);
 	load_woo_js_assets();
 	wp_deregister_script('jquery');
 	wp_register_script('CryptoJS', 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js', null, null, true );

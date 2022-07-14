@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $post, $woocommerce, $product;
 
 ?>
-<div class="images">
+<div class="images product-thumb">
 	<?php
 		if ( has_post_thumbnail() ) {
 			$attachment_count = count( $product->get_gallery_image_ids() );
@@ -51,7 +51,7 @@ global $post, $woocommerce, $product;
 		do_action( 'woocommerce_product_thumbnails' );
 	?>
 
-	<hr>
+
 
 	<?php if ( $product->is_type( 'simple' )) : ?>
 

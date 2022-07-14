@@ -9,6 +9,33 @@ body.inspire-up {
   @import "partials/cta_sidebar";
   @import "partials/mobile_sticky";
   @import "partials/product_category_page";
+
+	.woocommerce span.onsale {
+
+    background-color: #f1f000;
+    color: #1e1e1e;
+	}
+	#header-mobile{
+		display: none;
+
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+		border-bottom: solid 1px #eee;
+		a.logo{
+			width: 120px;
+		}
+		a{
+
+			display: block;
+			span.fw-900{
+				display: none;
+			}
+			span.fw-300{
+				display: none;
+			}
+		}
+	}
   ul.cart_list.product_list_widget {
 		padding: 0px;
 		margin: 0px;
@@ -180,6 +207,14 @@ body.inspire-up {
 		background-color: #f4f4f4;
 		padding: 10px;
 		margin-bottom: 10px;
+	}
+	.summary.entry-summary{
+		.content{
+			ul {
+					list-style-type: disc;
+			}
+		}
+
 	}
 }
 

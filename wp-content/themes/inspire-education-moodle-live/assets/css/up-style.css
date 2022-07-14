@@ -299,6 +299,29 @@ body.inspire-up ul.product-category li span.product-title {
   display: block;
   padding: 20px 10px;
 }
+body.inspire-up .woocommerce span.onsale {
+  background-color: #f1f000;
+  color: #1e1e1e;
+}
+body.inspire-up #header-mobile {
+  display: none;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 0px;
+  border-bottom: solid 1px #eee;
+}
+body.inspire-up #header-mobile a.logo {
+  width: 120px;
+}
+body.inspire-up #header-mobile a {
+  display: block;
+}
+body.inspire-up #header-mobile a span.fw-900 {
+  display: none;
+}
+body.inspire-up #header-mobile a span.fw-300 {
+  display: none;
+}
 body.inspire-up ul.cart_list.product_list_widget {
   padding: 0px;
   margin: 0px;
@@ -463,6 +486,9 @@ body.inspire-up form.checkout .delivery_option_wrapper {
   padding: 10px;
   margin-bottom: 10px;
 }
+body.inspire-up .summary.entry-summary .content ul {
+  list-style-type: disc;
+}
 
 @media only screen and (max-width: 768px) {
   body.inspire-up #content-wrap {
@@ -476,14 +502,132 @@ body.inspire-up form.checkout .delivery_option_wrapper {
     padding: 20px 0px;
     font-weight: bold;
   }
+  body.inspire-up .custom-header-container {
+    font-size: 12px;
+  }
+  body.inspire-up .custom-header {
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 450px) {
   body.inspire-up .custom-header-container {
     padding: 0px;
     margin-left: 0px;
   }
+  body.inspire-up .custom-header-container {
+    font-size: 12px;
+    height: 30px;
+  }
+  body.inspire-up .custom-header a span:nth-child(2) {
+    display: none;
+  }
+  body.inspire-up .custom-header a span:nth-child(1) {
+    animation: wiggle 5s infinite;
+  }
+  body.inspire-up .custom-header div {
+    margin-right: 5px;
+  }
+  body.inspire-up #login-area {
+    top: 0.65rem;
+  }
+  body.inspire-up #login-area a {
+    color: white;
+    text-shadow: none;
+  }
 }
 @media only screen and (max-width: 640px) {
+  body.inspire-up .cart-collaterals .cart_totals {
+    float: none;
+    width: 100%;
+  }
+  body.inspire-up div.product .summary form.cart {
+    position: static;
+    bottom: 0px;
+    margin: 0px;
+    position: sticky;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    padding: 10px 0px 5px 0px;
+    display: flex;
+    flex-flow: revert;
+    justify-content: center;
+  }
+  body.inspire-up div.product .summary form.cart .button {
+    height: 35px;
+  }
+  body.inspire-up div.product .product_title {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  body.inspire-up .custom-header-container {
+    display: none;
+  }
+  body.inspire-up div.page-shop {
+    padding-top: 0px;
+  }
+  body.inspire-up #header {
+    display: none;
+  }
+  body.inspire-up #header-mobile {
+    display: flex;
+  }
+  body.inspire-up .images.product-thumb {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  body.inspire-up .images.product-thumb .woocommerce-main-image {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    padding: 6px;
+  }
+  body.inspire-up .images.product-thumb div.two-column-layout {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+  body.inspire-up .images.product-thumb div.two-column-layout .column {
+    width: 100%;
+  }
+  body.inspire-up .images.product-thumb div.two-column-layout .column p {
+    margin: 0.4em 0;
+  }
+  body.inspire-up .images.product-thumb div.two-column-layout .column form.cart {
+    text-align: center;
+    margin: 0px auto;
+    width: 150px;
+  }
+  body.inspire-up .images.product-thumb div.two-column-layout .column form.cart .quantity {
+    width: 60px;
+    float: none;
+  }
+  body.inspire-up .images.product-thumb div.two-column-layout .column form.cart .quantity input.text {
+    margin: 0px;
+    padding: 3px 0px;
+  }
+  body.inspire-up .images.product-thumb div.two-column-layout .column form.cart .button {
+    vertical-align: middle;
+    float: none;
+    width: auto;
+    font-size: 12px;
+  }
+  body.inspire-up .images.product-thumb div.CTA-sidebar {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    font-size: 0.9em;
+    background-color: rgba(55, 166, 221, 0.7294117647);
+  }
+  body.inspire-up .images.product-thumb div.CTA-sidebar h3 {
+    text-align: center;
+    font-size: 10px;
+  }
   body.inspire-up h2.choose-cat-title {
     padding: 10px;
     line-height: 1.2em;
@@ -517,9 +661,6 @@ body.inspire-up form.checkout .delivery_option_wrapper {
   }
   body.inspire-up .post {
     line-height: 1.4em;
-  }
-  body.inspire-up #header, body.inspire-up #head-inner {
-    display: none;
   }
   body.inspire-up form.checkout h1.course-title {
     margin: 20px 0px;

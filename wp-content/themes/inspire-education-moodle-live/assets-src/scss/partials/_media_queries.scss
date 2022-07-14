@@ -1,9 +1,4 @@
 
-
-// // Small devices (landscape phones, 576px and up)
-// @media (min-width: 576px) { }
-
-// // Medium devices (tablets, 768px and up)
 @media only screen and (max-width: 768px ) {
   body.inspire-up {
     #content-wrap{
@@ -19,10 +14,10 @@
       padding: 20px 0px;
       font-weight: bold;
     }
-
+		.custom-header-container{ font-size: 12px; }
+		.custom-header{ width: 100%; }
   }
 }
-
 
 @media only screen and (max-width: 450px ) {
   body.inspire-up {
@@ -30,11 +25,118 @@
       padding: 0px;
       margin-left: 0px;
     }
+
+		.custom-header-container{
+				font-size: 12px;
+				height: 30px;
+		}
+
+		.custom-header a span:nth-child(2){ display: none; }
+		.custom-header a span:nth-child(1){ animation: wiggle 5s infinite; }
+		.custom-header div{ margin-right: 5px; }
+
+		#login-area{ top: .65rem; }
+		#login-area a{ color: white; text-shadow: none;}
   }
 }
 
 @media only screen and (max-width: 640px ) {
   body.inspire-up {
+
+		.cart-collaterals .cart_totals{
+			float: none;
+    	width: 100%;
+		}
+		div.product .summary  form.cart{
+			position: static;
+			bottom: 0px;
+			margin: 0px;
+			position: sticky;
+			z-index: 9999;
+			top: 0px;
+			left: 0px;
+			z-index: 999;
+			width: auto;
+			height: auto;
+			background-color: #fff;
+			padding: 10px 0px 5px 0px;
+			display: flex;
+			flex-flow: revert;
+			justify-content: center;
+			.button{
+				height: 35px;
+			}
+		}
+		div.product .product_title {
+			font-size: 1.3em;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		.custom-header-container{
+			display: none;
+		}
+		div.page-shop{
+				padding-top: 0px;
+		}
+		#header{
+			display: none;
+		}
+		#header-mobile{
+			display: flex;
+		}
+
+		.images.product-thumb{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			.woocommerce-main-image {
+				grid-column-start: 1;
+				grid-row-start: 1;
+				grid-row-end: 5;
+				padding: 6px;
+			}
+			div.two-column-layout{
+				grid-column-start: 2;
+				grid-row-start: 2;
+				grid-row-end: 2;
+				.column{
+					width: 100%;
+					p {
+							margin: 0.4em 0
+					}
+					form.cart{
+						text-align: center;
+						margin: 0px auto;
+						width: 150px;
+						.quantity {
+							width: 60px;
+							float: none;
+							input.text{
+								margin: 0px;
+								padding: 3px 0px;
+							}
+						}
+						.button{
+							vertical-align: middle;
+							float: none;
+							width: auto;
+							font-size: 12px;
+						}
+					}
+				}
+			}
+			div.CTA-sidebar{
+				grid-column-start: 2;
+				grid-row-start: 1;
+				grid-row-end: 1;
+				font-size: .9em;
+				background-color: #37a6ddba;
+				h3{
+					text-align: center;
+					font-size: 10px;
+				}
+			}
+		}
+
     h2.choose-cat-title {
         padding: 10px;
         line-height: 1.2em;
@@ -73,9 +175,7 @@
       line-height: 1.4em;
 
     }
-    #header, #head-inner {
-        display: none;
-    }
+
     form.checkout h1.course-title {
       margin: 20px 0px;
       text-align: center;
@@ -222,3 +322,6 @@
     }
   }
 }
+
+
+

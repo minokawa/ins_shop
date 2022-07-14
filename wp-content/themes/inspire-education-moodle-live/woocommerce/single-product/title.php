@@ -158,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 	} else { /* custom changes end */ ?>
 
-		<div itemprop="description" class="tester-cont">
+		<div itemprop="description" class="content">
 
 			<?php the_content(); ?>
 

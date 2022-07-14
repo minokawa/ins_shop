@@ -77,30 +77,4 @@
   100% { transform: rotate(0deg); }
 }
 
-/* RESPONSIVENESS */
-@media screen and (max-width: 780px){
-    .custom-header-container{ font-size: 12px; }
-    .custom-header{ width: 100%; }
-.woocommerce-product-gallery__image,.woocommerce div.product div.images {
-    width: 60%;
-    margin: auto;
-}
-
-}
-
-
-
-@media screen and (max-width: 450px){
-    .custom-header-container{
-        font-size: 12px;
-        height: 30px;
-    }
-
-    .custom-header a span:nth-child(2){ display: none; }
-    .custom-header a span:nth-child(1){ animation: wiggle 5s infinite; }
-    .custom-header div{ margin-right: 5px; }
-
-    #login-area{ top: .65rem; }
-    #login-area a{ color: white; text-shadow: none;}
-}
 .state_required{color:red!important}
