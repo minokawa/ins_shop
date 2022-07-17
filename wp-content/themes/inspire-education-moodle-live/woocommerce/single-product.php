@@ -23,7 +23,7 @@ get_header('shop'); ?>
 		do_action('woocommerce_before_main_content');
 	?>
 
-	
+
 
 	<?php include( TEMPLATEPATH . '/woocommerce/checkout-steps.php' ); ?>
 
@@ -42,4 +42,5 @@ get_header('shop'); ?>
 		do_action('woocommerce_after_main_content');
 	?>
 
+	<?php edit_post_link(__('{Edit}')); ?>
 <?php get_footer('shop'); ?>

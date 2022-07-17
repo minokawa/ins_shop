@@ -247,16 +247,16 @@ add_action( 'wp_enqueue_scripts', 'load_inspire_assets' );
 
 function load_inspire_assets() {
 	$translation_array = get_sku_json();
-	wp_enqueue_style('legacy-stylesheet', get_stylesheet_directory_uri() . '/assets/css/legacy-style.css', array(),  1.38, 'all');
+	wp_enqueue_style('legacy-stylesheet', get_stylesheet_directory_uri() . '/assets/css/legacy-style.css', array(),  1.40, 'all');
 	wp_enqueue_style('font-awesome-free', '//use.fontawesome.com/releases/v5.12.0/css/all.css' );
-	wp_enqueue_style('main-stylesheet', get_template_directory_uri() . '/assets/css/style.css', array(),  1.38, );
-	wp_enqueue_style('up-stylesheet', get_template_directory_uri() . '/assets/css/up-style.css', array(),  1.38,);
+	wp_enqueue_style('main-stylesheet', get_template_directory_uri() . '/assets/css/style.css', array(),  1.40, );
+	wp_enqueue_style('up-stylesheet', get_template_directory_uri() . '/assets/css/up-style.css', array(), 1.40,);
 	load_woo_js_assets();
 	wp_deregister_script('jquery');
 	wp_register_script('CryptoJS', 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js', null, null, true );
 	wp_enqueue_script('js_cookie', 'https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js', array(), null, false);
 	wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), null, false);
-	wp_enqueue_script('vendors', get_template_directory_uri() . '/assets/scripts/vendors.js', array(),  1.3, true );
+	wp_enqueue_script('vendors', get_template_directory_uri() . '/assets/scripts/vendors.js', array(),  1.4, true );
 	wp_register_script('inspire_legacy', get_template_directory_uri() . '/assets/scripts/legacy-script.js', array ( 'jquery' ),  2.3, true );
 	$home =  get_home_url();
 	wp_localize_script('inspire_legacy', 'product_look_up', $translation_array);
@@ -576,7 +576,7 @@ function update_campaign_checkout_message($post_id) {
 
 
 
-if( function_exists('acf_add_local_field_group') ):
+if( function_exists('acf_add_local_field_group') ){
 
 	acf_add_local_field_group(array(
 		'key' => 'group_62960eda298d4',
@@ -665,6 +665,61 @@ if( function_exists('acf_add_local_field_group') ):
 		'show_in_rest' => 0,
 	));
 
-	endif;
+}
 
 
+
+function get_cross_sell_products($atts = [], $content = null, $tag = '') {
+	global $product, $woocommerce, $woocommerce_loop;
+	$crosssells = $product->get_cross_sell_ids();
+	$meta_query = $woocommerce->query->get_meta_query();
+	$args = array(
+		'post_type'           => 'product',
+		'post__in'            => $crosssells,
+		'post__not_in'        => array( $product->get_id()),
+		'meta_query'          => $meta_query
+	);
+
+	$atts = array_change_key_case( (array) $atts, CASE_LOWER );
+
+	// override default attributes with user attributes
+	$cross_sell_atts = shortcode_atts(
+			array(
+					'title' => 'Recommended courses:',
+			), $atts, $tag
+	);
+
+
+	$products = new WP_Query( $args );
+	$thumb = '<div class="splide cross-sell-wrapper">		<h4>'.$cross_sell_atts['title'].'</h4> <div class="splide__track"><div class="splide__list">';
+	if ( $products->have_posts() ) {
+		while ( $products->have_posts() ){ $products->the_post();
+			if ( has_post_thumbnail() ) {
+				$attachment_count = count( $product->get_gallery_image_ids() );
+				$gallery          = $attachment_count > 0 ? '[product-gallery]' : '';
+				$props            = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
+				$image            = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array('title'	 => $props['title'],'alt'    => $props['alt'],) );
+				$thumb .= apply_filters(
+					'woocommerce_single_product_image_html',
+					sprintf(
+						'<a href="%s" class="splide__slide" itemprop="image" title="%s" data-rel="prettyPhoto%s">%s</a>',
+						esc_url($product->get_permalink()),
+						esc_attr( $props['caption'] ),
+						$gallery,
+						$image
+					),
+					$post->ID
+				);
+			}
+		}
+		wp_reset_postdata();
+	}
+	return $thumb . '</div> </div> </div> ';
+}
+
+
+function inspire_shortcodes_init() {
+	add_shortcode('inspire_cross_sell', 'get_cross_sell_products');
+}
+
+add_action( 'init', 'inspire_shortcodes_init' );

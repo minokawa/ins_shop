@@ -9,7 +9,10 @@ body.inspire-up {
   @import "partials/cta_sidebar";
   @import "partials/mobile_sticky";
   @import "partials/product_category_page";
-
+	@import "partials/upsell";
+	@import "partials/cross_sell";
+	@import "partials/product_meta";
+	@import "partials/splide";
 	.woocommerce span.onsale {
 
     background-color: #f1f000;
@@ -216,6 +219,10 @@ body.inspire-up {
 		}
 
 	}
+	div.product div.images img {
+
+    position: relative;
+}
 }
 
 @import "partials/media_queries";
