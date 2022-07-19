@@ -259,8 +259,13 @@ function load_inspire_assets() {
 	wp_enqueue_script('vendors', get_template_directory_uri() . '/assets/scripts/vendors.js', array(),  1.4, true );
 	wp_register_script('inspire_legacy', get_template_directory_uri() . '/assets/scripts/legacy-script.js', array ( 'jquery' ),  2.3, true );
 	$home =  get_home_url();
-	wp_localize_script('inspire_legacy', 'product_look_up', $translation_array);
-	wp_localize_script('inspire_legacy', 'home_url',$home );
+
+
+	wp_add_inline_script('inspire_legacy', 'const product_look_up = ' . json_encode($translation_array) , 'before' );
+
+
+	wp_add_inline_script( 'inspire_legacy', 'const home_url = "' .$home .'"' , 'before' );
+
 	wp_enqueue_script('inspire_script', get_template_directory_uri() . '/assets/scripts/inspire_script.js', array ( 'jquery', 'wc-add-to-cart-variation' ), 2.3, true);
 	wp_enqueue_script('CryptoJS');
 	wp_enqueue_script('inspire_legacy' );
@@ -291,7 +296,7 @@ function load_woo_js_assets(){
 		}
 
 		wp_dequeue_script('ts_fab_js');
-
+		wp_dequeue_style( 'woocommerce-layout' );
 		if ( function_exists( 'is_woocommerce' ) ) {
 			wp_dequeue_style( 'woocommerce_fancybox_styles' );
 			wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
@@ -300,7 +305,7 @@ function load_woo_js_assets(){
 				wp_dequeue_style( 'woocommerce_frontend_styles' );
 				wp_dequeue_style( 'woocommerce_chosen_styles' );
 				wp_dequeue_style( 'woocommerce-smallscreen' );
-				wp_dequeue_style( 'woocommerce-layout' );
+
 				wp_dequeue_style( 'woocommerce-general' );
 			}
 		}
@@ -513,6 +518,7 @@ add_action( 'rest_api_init', function () {
   register_rest_route( 'inspire/v1', '/campaign-checkout/(?P<id>\d+)', array(
     'methods' => 'GET',
     'callback' => 'inspire_campaign_checkout',
+		'permission_callback' => '__return_true',
 		'args' => array(
       'id' => array(
         'validate_callback' => function($param, $request, $key) {
@@ -697,8 +703,8 @@ function get_cross_sell_products($atts = [], $content = null, $tag = '') {
 			if ( has_post_thumbnail() ) {
 				$attachment_count = count( $product->get_gallery_image_ids() );
 				$gallery          = $attachment_count > 0 ? '[product-gallery]' : '';
-				$props            = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
-				$image            = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array('title'	 => $props['title'],'alt'    => $props['alt'],) );
+				$props            = wc_get_product_attachment_props( get_post_thumbnail_id(), $product );
+				$image            = get_the_post_thumbnail(  $product->get_id(), apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array('title'	 => $props['title'],'alt'    => $props['alt'],) );
 				$thumb .= apply_filters(
 					'woocommerce_single_product_image_html',
 					sprintf(
@@ -708,7 +714,7 @@ function get_cross_sell_products($atts = [], $content = null, $tag = '') {
 						$gallery,
 						$image
 					),
-					$post->ID
+					$product->get_id()
 				);
 			}
 		}

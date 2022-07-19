@@ -1,55 +1,7 @@
 
 //Genaral scripts
 (function () {
-  //Dropdown Menu
-  var getURLParams = function() {
-    var temp = {};
-    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function() {
-        var decode = function(s) {
-            return decodeURIComponent(s.split("+").join(" "));
-        };
-        temp[decode(arguments[1])] = decode(arguments[2]);
-    });
-    return temp;
-  };
-  function over_callback() {
-    $(this).find(".sub, .sub-menu").stop().fadeTo("fast", 1).show();
-    (function (a) {
-        jQuery.fn.calcSubWidth = function () {
-            rowWidth = 0;
-            a(this).find("ul").each(function () {
-                rowWidth += a(this).width()
-            })
-        }
-    })(jQuery);
-    if ($(this).find(".row").length > 0) {
-        var a = 0;
-        $(this).find(".row").each(function () {
-            $(this).calcSubWidth();
-            if (rowWidth > a) {
-                a = rowWidth
-            }
-        });
-        $(this).find(".sub, .sub-menu").css({
-            width: a
-        });
-        $(this).find(".row:last").css({
-            margin: "0"
-        })
-    } else {
-        $(this).calcSubWidth();
-        $(this).find(".sub, .sub-menu").css({
-            width: rowWidth
-        })
-    }
-  }
-  function out_callback() {
-    $(this).find(".sub, .sub-menu").stop().fadeTo("fast", 0, function () {
-        $(this).hide()
-    })
-  }
-  $("#nav li .sub, #nav li .sub-menu").css({ opacity: "0" });
-  $("#nav li").hoverIntent({ sensitivity: 1,	interval: 1, over: over_callback, timeout: 100, out: out_callback});
+
   var is_utm_page =$('#course-form-modal, .page-template-page-course-sub-button-left-new-php, .page-template-page-course-sub-button-left-new-autoform-php, .page-template-page-course-sub-button-left-new-autoform-short-php, .page-template-page-thankyou-php, .courses_page').length;
 
   if( is_utm_page > 0 ){

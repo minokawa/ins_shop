@@ -1,0 +1,11 @@
+div.product {
+	display: flex;
+	justify-content: space-between;
+	.side {
+		width: 25%;
+			position: relative;
+	}
+	.main.summary.entry-summary {
+		width: 72%;
+	}
+}

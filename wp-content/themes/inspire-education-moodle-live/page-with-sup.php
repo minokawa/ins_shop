@@ -13,9 +13,7 @@
       <?php endwhile; endif; ?>
       <?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
     </div>
-    <?php if ( function_exists("has_post_thumbnail") && has_post_thumbnail() ) { the_post_thumbnail(array(320,900), array("class" => "ez-fr  wp-post-image")); } else { ?>
-    <img width="268" height="363" title="blog-image" alt="blog-image" class="ez-fr wp-post-image" src="http://inspireeducation.net.au/wp-content/uploads/2010/05/blog-image.png">
-    <?php } ?>
+
     <?php include (TEMPLATEPATH . '/page-supp.php'); ?>
   </div>
 </div>

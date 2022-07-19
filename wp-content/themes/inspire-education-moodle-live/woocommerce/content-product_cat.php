@@ -39,7 +39,8 @@ if (is_shop()) {
     <li class="category-<?php echo $category->slug; ?>">
       <a class="<?php echo $category->slug; ?>" data-toggle="modal" data-target="#cart-modal-shop">
         <?php
-          echo $category->name;
+				  echo $category_image;
+          echo '<div class="category-details">' . $category->name;
           if ( $category->count > 0 && $item_type === 'product'){
             echo apply_filters( 'woocommerce_subcategory_count_html', ' <span class="count"><strong>' . $category->count . '</strong> products available!!</span>', $category );
           }
@@ -48,7 +49,7 @@ if (is_shop()) {
             $actual_count = '';//$_COOKIE['eventCount'] ?: $category->count;
             echo apply_filters( 'woocommerce_subcategory_count_html', ' <span class="count"><strong>' . $category->count. '</strong> study '.$single.' available!!</span>', $category );
           }
-          echo $category_image;
+					echo '</div>';
         ?>
       </a>
     </li>

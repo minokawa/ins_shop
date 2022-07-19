@@ -23,47 +23,8 @@
 .fw-300{ font-weight: 300; }
 .fw-900{ font-weight: 900; }
 
-/* Custom header container */
-.custom-header-container{
-    height: 35px;
-      font-size: 14px;
-    background: #002755;
-    text-shadow: none;
-    z-index: 10;
-    padding: 8px 8px 2px 8px;
-}
-
-.custom-header {
-  max-width: 960px;
-  margin: auto;
-  padding-top: 6px;
-}
-.custom-header > div { margin-right: 15px; }
-.custom-header > div a{ color: white; text-decoration: none; }
-.custom-header > div a span:first-child{ margin-right: 5px; }
-
-/* OVERRIDES */
-#header,
-#head-inner{ height: 53px; background-color: #00bce8;
-    color: #fff;}
-
-
-#login-area{
-  z-index: 99;
-  right: 10px;
-  top: -46px;
-}
-#login-area a {text-indent:-9999px;background:url(../images/but-login.png) no-repeat center top;width:181px;height:33px;display:block;}
-#nav li a {
-    color: #fff;
-    font-weight: normal;
-    text-shadow: none;
-}
-#nav li:hover a {
-    color: #022857;
-}
 /* ANIMATIONS */
-@keyframes wiggle {
+/* @keyframes wiggle {
     0% { transform: rotate(10deg); }
    5% { transform: rotate(-10deg); }
    10% { transform: rotate(20deg); }
@@ -75,6 +36,6 @@
    40% { transform: rotate(-5deg); }
    45% { transform: rotate(0deg); }
   100% { transform: rotate(0deg); }
-}
+} */
 
 .state_required{color:red!important}

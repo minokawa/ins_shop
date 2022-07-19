@@ -1,0 +1,38 @@
+#add_payment_method table.cart img, table.cart img, .woocommerce-checkout table.cart img {
+  width: auto;
+  box-shadow: none;
+  max-width: 120px;
+  height: auto;
+}
+
+.cart-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.cart-details form {
+  width: 65%;
+}
+.cart-details form .coupon {
+  padding: 5px;
+  width: 70%;
+  display: inline-block;
+}
+.cart-details form .coupon .input-text {
+  display: inline-block;
+  width: auto;
+}
+.cart-details form input[name=update_cart] {
+  align-items: baseline;
+  display: inline;
+  margin-bottom: 0px;
+  margin-left: auto;
+}
+.cart-details .cart-collaterals {
+  width: 30%;
+}
+.cart-details .cart-collaterals .wc-proceed-to-checkout a.checkout-button {
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=pag_view_cart.css.map */

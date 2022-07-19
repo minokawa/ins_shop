@@ -1,4 +1,8 @@
-	<section id="footer-wrap" class="clearfix wrapper">
+
+
+</div>
+
+<section id="footer-wrap" class="clearfix wrapper">
 		<footer role="contentinfo" class="footer container clearfix">
 			<div id="foot-contact" class="vcard clearfix">
 				<div class="org"><strong>Inspire Education Pty Ltd</strong></div>
@@ -13,14 +17,11 @@
 				<div id="foot-nav">
 					<ul>
 						<li><a class="home" href="https://www.inspireeducation.net.au/">Home</a> </li>
-						<li><a class="courses" href="/?page_id=41">Courses</a></li>
-						<li><a title="shop" href="/shop">Enrol/Shop</a></li>
-						<li class="page_item page-item-2"><a title="About Us" href="/about-us/">About Us</a></li>
+						<li><a class="courses" href="https://www.inspireeducation.net.au/courses/">Courses</a></li>
+						<li><a title="shop" href="<?php echo home_url(); ?>/shop">Enrol/Shop</a></li>
+						<li class="page_item page-item-2"><a title="About Us" href="https://www.inspireeducation.net.au/about-us/">About Us</a></li>
 						<li class="page_item page-item-4"><a title="News" href="https://www.inspireeducation.net.au/blog">News</a></li>
-						<li class="page_item page-item-5"><a title="FAQ" href="/faq/">FAQ</a></li>
-						<li class="page_item page-item-7"><a title="Career Search" href="/search/">Career Search</a></li>
-						<li class="page_item page-item-9"><a title="Blog" href="/blog/">Blog</a></li>
-						<li class=""><a title="links" href="https://www.inspireeducation.net.au/courses">Links</a></li>
+						<li class="page_item page-item-5"><a title="FAQ" href="https://www.inspireeducation.net.au/faq/">FAQ</a></li>
 					</ul>
 					<p>
 						<strong>Inspire Education Pty Ltd</strong> &copy; 2009 All Rights reserved | <a href="<?php echo home_url(); ?>/?page_id=191" title="privacy policy">Privacy Policy</a><br />
@@ -31,11 +32,6 @@
 			</div>
 		</footer>
 	</section>
-	<div id="response">
-		<h2>Whoops!!</h2>
-		<h4>Could you please amend the form? We&#8217;ve highlighted the problem(s) for you...</h4>
-	<div>
-</div>
 
 	<?php
 		$yes_please_pages = array('page-course-sub-button-left-new-autoform-short.php','page-course-sub-button-left-new-autoform-short-DipWHS.php','page-course-sub-button-left-new-autoform-short-TESOL.php','page-course-sub-button-left-new-autoform-short-HR.php','page-course-sub-button-left-new-autoform-short-EdSupport.php','page-course-sub-button-left-new-autoform-short-Disability.php','page-course-sub-button-left-new-autoform-short-DipVET.php','page-course-sub-button-left-new-autoform-short-DipTDD.php','page-course-sub-button-left-new-autoform-short-DipPGM.php','page-course-sub-button-left-new-autoform-short-DipECE.php','page-course-sub-button-left-new-autoform-short-DipAccounting.php','page-course-sub-button-left-new-autoform-short-CertIVPGM.php','page-course-sub-button-left-new-autoform-short-BusinessAdmin.php','page-course-sub-button-left-new-autoform-short-Bookkeeping.php','page-course-sub-button-left-new-autoform-short-Ageing.php','newlandingpage.php','newlandingpage-1.php','newlandingpage-2.php','newlandingpage-3.php','page-course-sub-button-left-new-autoform-short-Accounting.php','page-course-sub-button-left-new-autoform-short-HomeCare.php', 'page-course-sub-button-left-new-autoform-short-CertIVWHS.php', 'page-course-sub-button-left-new-autoform-short-CertIIIECE - Copy.php', 'page-course-sub-button-left-new-autoform-short-CertIIIECE - Copy 2.php', 'page-course-sub-button-left-new-autoform-short-Cert3Guarantee.php');
@@ -57,7 +53,12 @@
 	</script>
 
 	<script type="text/javascript" src="https://d31qbv1cthcecs.cloudfront.net/atrk.js"></script>
-	<script type="text/javascript">_atrk_opts = { atrk_acct: "2mQzf1agkf00wk", domain:"inspireeducation.net.au"}; atrk ();</script>
+	<script type="text/javascript">
+		if(typeof(atrk) != 'undefined' ){
+			_atrk_opts = { atrk_acct: "2mQzf1agkf00wk", domain:"inspireeducation.net.au"}; atrk();
+		}
+
+	</script>
 	<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=2mQzf1agkf00wk" style="display:none" height="1" width="1" alt="" /></noscript>
 
 	<?php if (is_page_template($yes_please_pages)) { ?>

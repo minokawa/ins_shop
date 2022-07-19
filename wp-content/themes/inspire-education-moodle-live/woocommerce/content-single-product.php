@@ -43,11 +43,10 @@ global $woocommerce;
   	<h2 class="course-cat">Inspire Products
 
         <span id="cart_tools">
-          <a href="/cart/" target="_blank">View Cart (<?php
+          <a href="<?php echo home_url(); ?>/cart/" target="_blank">View Cart (<?php
             if (sizeof($woocommerce->cart->get_cart())>0) :
 
               echo $woocommerce->cart->cart_contents_count;
-
             endif;
           ?>)</a>
           <?php if ( is_user_logged_in() ) {
@@ -74,43 +73,18 @@ global $woocommerce;
 
 <div id="product-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
 
-	<?php
-		/**
-		 * woocommerce_before_single_product_summary hook
-		 *
-		 * @hooked woocommerce_show_product_sale_flash - 10
-		 * @hooked woocommerce_show_product_images - 20
-		 */
-		do_action( 'woocommerce_before_single_product_summary' );
-	?>
+		<div class='side'>
+			<?php
+				woocommerce_show_product_sale_flash();
+				woocommerce_show_product_images();
+			?>
+		</div>
+		<div class="main summary entry-summary">
+			<?php do_action( 'woocommerce_single_product_summary' ); ?>
+			<hr>
+			<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
+		</div>
 
-	<div class="summary entry-summary">
-
-		<?php
-			/**
-			 * woocommerce_single_product_summary hook
-			 *
-			 * @hooked woocommerce_template_single_title - 5
-			 * @hooked woocommerce_template_single_price - 10
-			 * @hooked woocommerce_template_single_excerpt - 20
-			 * @hooked woocommerce_template_single_add_to_cart - 30
-			 * @hooked woocommerce_template_single_meta - 40
-			 * @hooked woocommerce_template_single_sharing - 50
-			 */
-			do_action( 'woocommerce_single_product_summary' );
-		?>
-		<hr>
-		<?php
-		/**
-		 * woocommerce_after_single_product_summary hook
-		 *
-		 * @hooked woocommerce_output_product_data_tabs - 10
-		 * @hooked woocommerce_output_related_products - 20
-		 */
-		do_action( 'woocommerce_after_single_product_summary' );
-	?>
-	</div><!-- .summary -->
-
-</div><!-- #product-<?php the_ID(); ?> -->
+</div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

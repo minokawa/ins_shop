@@ -25,8 +25,11 @@ jQuery(document).ready(function($){
 		if ($('#ccf_main_lang').val() == 'Not Stated'){
 			$('#english-level').fadeIn("200", "linear");
 		}
-		var splide = new Splide( '.cross-sell-wrapper',{"type":"loop","perPage":3} );
-		splide.mount();
+		if($('.cross-sell-wrapper').length > 0){
+			var splide = new Splide( '.cross-sell-wrapper',{"type":"loop","perPage":3} );
+			splide.mount();
+		}
+
 });
 
 

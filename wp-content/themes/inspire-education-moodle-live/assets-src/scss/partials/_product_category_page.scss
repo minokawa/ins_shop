@@ -10,15 +10,15 @@ ul.product-category {
   width: 100%;
   li {
     list-style: none;
-    padding: 0px;
+    padding: 10px;
     margin: 0px;
-    width: 33.33333%;
+		width: 22%;
     display: block;
     margin-bottom: 30px;
     position: relative;
     span.product-title {
       display: block;
-      padding: 20px 10px;
+      padding: 20px 0px;
     }
   }
 }

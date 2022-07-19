@@ -25,6 +25,17 @@
   border-radius: 0px;
   border: none;
   box-shadow: none;
+	#product-courses{
+		li {
+			.summary-wrapper{
+				display: flex;
+				justify-content: space-between;
+				.summary.entry-summary {
+					width: 68%;
+				}
+			}
+		}
+	}
 }
 .modal .close {
   position: sticky;

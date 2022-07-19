@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                   $cart_item_count = 0;
                   if (sizeof($woocommerce->cart->get_cart())>0) { $cart_item_count =  $woocommerce->cart->cart_contents_count; }
                 ?>
-                <span id="cart_tools" class="dave">
+                <span id="cart_tools" class="">
                   <a href="#" data-toggle="modal" data-target="#cart-modal">Finalise Enrolments (<?php echo $cart_item_count ?>)</a>
                   <?php
                     $user_account_links = '&nbsp; | &nbsp; <a href="#" class="showlogin">Click here to login</a>';

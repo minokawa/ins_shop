@@ -14,9 +14,9 @@ function wcs_custom_price_strings( $subscription_string, $product, $include ) {
 	// 	$subscription_string = $custom_price_string;
 	// }
 	//$subscription_string = 'heyo!!!!';
-		if($product->post_type() == ''){
+		// if($product->post_type() == ''){
 
-		}
+		// }
 	// <p><em><span style="color: #ff0000;"><b>Upfront Payment of&nbsp; Only</b> <strong><del>$1,499</del> $1,495</strong> + 3 Monthly Payments of <del>$332</del> $166.67 <strong>(Total <del>$2,495</del> $1,995)</strong></span></em></p>
 	return $subscription_string;
 }

@@ -1,1 +1,91 @@
-h2.course-cat {  padding: 10px 0px; }
+h2.course-cat {
+	padding: 0px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.2em;
+	margin-bottom: 20px;
+
+	border-bottom: 1px solid #b0b7b9;
+	span {
+		font-size: 13px;
+	}
+}
+
+
+/* Custom header container */
+.custom-header-container{
+	font-size: 14px;
+	background: #002755;
+	text-shadow: none;
+	z-index: 10;
+	.custom-header {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+		justify-content: space-between;
+		> div { margin-right: 15px; }
+		> div a{ color: white; text-decoration: none; }
+		> div a span:first-child{ margin-right: 5px; }
+		#login-area a {
+			display: block;
+			background-color: #fc6b3e;
+			padding: 4px 10px;
+			margin-bottom: 10px;
+		}
+		div#contact-links {
+			min-width: 600px;
+			display: flex;
+			justify-content: space-between;
+			padding-top: 8px;
+		}
+	}
+}
+
+#header{
+	background: #fff;
+	border-bottom: 0.0625rem solid #e5e5e5;
+	color: #fff;
+	#head-inner{
+		display: flex;
+		width: 100%;
+		max-width: 1024px;
+		margin: auto;
+		justify-content: space-between;
+		#main-nav{
+			display: flex;
+			align-items: center;
+			position: relative;
+		}
+		#nav {
+			position:relative;
+			list-style: none;
+			font-size: 1.1em;z-index:20;
+			display: flex;
+		}
+		#nav li {
+				margin: 0 3px;
+				padding: 0;
+				position:relative;
+				a {
+					padding: 0px 5px;
+					font-weight:bold;
+					text-transform:capitalize;
+					font-size:1.1em;
+					color: #022857;
+					text-shadow: none;
+					&:hover{
+						color: #00bce8;
+					}
+				}
+				ul li {width:100%;}.current_page_item a {padding:5px 10px 15px}
+		}
+	}
+	#brand {
+		background: url(https://shop.inspireeducation.net.au/wp-content/uploads/Inspire_Education_Logo_208x81-e1579831385106.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-indent: -9999px;
+		width: 184px;
+    height: 64px;
+	}
+}

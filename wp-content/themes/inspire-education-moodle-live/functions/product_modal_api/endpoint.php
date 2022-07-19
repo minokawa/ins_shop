@@ -109,6 +109,7 @@ function setup_products_modal_endpoint () {
 	$products_api_settings = array(
   'methods'=> WP_REST_Server::READABLE,
   'callback' => 'get_inspire_products',
+	'permission_callback' => '__return_true',
   'args'      => array(
     'wp_nonce_product_modal' => array(
     'required' => true,
@@ -122,6 +123,7 @@ function setup_products_modal_endpoint () {
 
 	$moodle_event_api_settings = array(
   'callback' => 'get_moodle_event_details',
+	'permission_callback' => '__return_true',
   'methods' => 'POST',
   'args'      => array(
     'wp_nonce_product_modal' => array(
@@ -169,14 +171,16 @@ function setup_products_modal_JS(){
 ?>
 	<script id="product-entry-template" type="text/x-handlebars-template">
 		<li data-pid='{{ID}}' class='{{encodeMyString  item_class}}'>
-			<div class='images'>{{encodeMyString  image}}</div>
-			<div class='summary entry-summary'>
-				<h5 itemprop='name' class='product_title entry-title'><a href='{{post_permalink}}'>{{encodeMyString  post_title}}</a></h5>
-				<div itemprop='description'>
-					{{encodeMyString  woocommerce_short_description}}
-				  <p class='event-details'></p>
+			<div class='summary-wrapper'>
+				<div class='images'>{{encodeMyString  image}}</div>
+				<div class='summary entry-summary'>
+					<h5 itemprop='name' class='product_title entry-title'><a href='{{post_permalink}}'>{{encodeMyString  post_title}}</a></h5>
+					<div itemprop='description'>
+						{{encodeMyString  woocommerce_short_description}}
+						<p class='event-details'></p>
+					</div>
+					{{encodeMyString  woocommerce_single_product_summary}}
 				</div>
-				{{encodeMyString  woocommerce_single_product_summary}}
 			</div>
 		</li>
 	</script>
