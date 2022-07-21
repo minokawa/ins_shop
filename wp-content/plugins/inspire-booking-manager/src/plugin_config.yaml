@@ -1,0 +1,4 @@
+admin:
+ name: "Booking Manager"
+ slug: "inspire-booking-manager"
+ prefix: "inspire_booking_manager"

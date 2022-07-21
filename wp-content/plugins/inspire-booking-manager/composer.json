@@ -1,0 +1,27 @@
+{
+  "name": "inspire/booking-manager",
+  "authors": [
+    {
+      "name": "LitLag",
+      "email": "litolagunday@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+			"Inspire\\Booking\\": "src/booking",
+      "Inspire\\": "src"
+    },
+		"files": [
+			"src/acf/dashboard.php"
+		]
+  },
+  "require": {
+    "techcrunch/wp-async-task": "dev-master",
+    "google/apiclient": "^2.0",
+    "symfony/config": "^5.4",
+    "symfony/yaml": "^5.4",
+    "twig/twig": "^2.0",
+    "twig/extensions": "^1.5",
+    "roomify/bat": "^1.4"
+  }
+}
