@@ -1,0 +1,41 @@
+#footer-wrap{
+	background-color: #002755;
+	.container {
+			display: flex;
+			max-width: 1024px;
+			margin: auto;
+			padding: 40px 0px;
+			justify-content: space-between;
+			.org{
+				font-size: 2em;
+				margin-bottom: 20px;
+			}
+			#foot-contact,p{
+				color: #fff;
+			}
+			#foot-nav{
+				ul{
+					display: flex;
+					margin: 0px;
+					margin-bottom: 20px;
+					li {
+						margin-right: 10px;
+					}
+				}
+			}
+	}
+}
+.q400-tab, .velg-tab {
+	text-indent: -9999px;
+	background: url(../images/acreditation-tabs.png) no-repeat;
+	display: inline-block;
+	height: 64px;
+	width: 96px;
+}
+.q400-tab {
+	background-position: -308px bottom;
+	width: 84px;
+}
+.velg-tab {
+	background-position: bottom right
+}

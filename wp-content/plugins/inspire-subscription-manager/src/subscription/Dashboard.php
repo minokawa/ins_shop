@@ -137,20 +137,16 @@ final class Dashboard {
 						'subscription_time_interval'=>$variant_details['interval'],
 						'subscription_time_length'=> $variant_details['expire_after'],
 						'post_title'   => $product_name . ' (payment plan -'.$variant_details['name'].')',
-						'post_content' => '',
+						'post_content' => $variant_details['subscription_details'],
 						'post_status'  => 'publish',
 						'post_parent'  => $key,
-						'post_type'    => 'product_variation'
+						'post_type'    => 'product_variation',
+						'description' => $variant_details['subscription_details'],
 					);
 
 					self::create_product_variation($key, $variation, $ATTR_SLUG, $term_slug);
 				}
 			}
-
-
-
-
-
 
 		}
 	}
@@ -189,6 +185,7 @@ final class Dashboard {
 		$subscription_time_unit = $variation['subscription_time_unit'];
 		$subscription_time_interval = $variation['subscription_time_interval'];
 		$subscription_time_length = $variation['subscription_time_length'];
+		$description = $variation['description'];
 
 		if($stock_quantity == -1) {	$manage_stock = 0;	}
 		if($sign_up_fee > 0) { $is_upfront = 1;	}
@@ -209,6 +206,8 @@ final class Dashboard {
 		update_post_meta( $variation_id, '_date_on_sale_from',  $sale_date_start );
 		update_post_meta( $variation_id, '_date_on_sale_to',  $sale_date_end);
 		update_post_meta( $variation_id, '_downloadable',  1);
+		update_post_meta( $variation_id, '_description',  $description);
+
 
 		update_post_meta( $variation_id, '_subscription_period',	$subscription_time_unit); //day, week, month or year.
 		update_post_meta( $variation_id, '_subscription_period_interval', 	$subscription_time_interval ); //billing schedule interval, e.g. 2

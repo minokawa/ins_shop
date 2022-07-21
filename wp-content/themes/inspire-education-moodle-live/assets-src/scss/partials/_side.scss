@@ -1,0 +1,74 @@
+.side{
+	.woocommerce-main-image{
+    margin-bottom: 10px;
+    display: block;
+	}
+	.two-column-layout {
+		display: flex;
+		flex-wrap: wrap;
+		justify-items: center;
+		align-content: space-evenly;
+		align-items: center;
+		.column {
+			width: 50%;
+			display: block;
+			align-items: center;
+			div[itemprop='offers']{
+				text-align: center;
+				font-weight: bold;
+			}
+			form.cart .button {
+				vertical-align: middle;
+				float: none;
+				width: 100%;
+			}
+			form.cart div.quantity {
+					width: 100px;
+			}
+			.quantity input.text {
+				margin: 0px 0px 10px 0px;
+				padding: 5px 0px;
+				width: 100%;
+				display: block;
+				background-color: rgb(253 253 253);
+				z-index: 4;
+				border: 1px solid rgb(0 39 85);
+				color: #002755;
+				border-radius: 0px;
+				font-size: 1.2em;
+			}
+		}
+		form.cart {
+			margin-bottom: 2em;
+			align-items: flex-start;
+			display: flex;
+		}
+	}
+
+	.CTA-sidebar {
+		background: #002856;
+		padding: 10px;
+		color: #fff;
+		font-size: 1.3em;
+		text-shadow: none;
+		h3 {
+			color: #FFF;
+			font-weight: bold;
+		}
+		span.highlight1 {
+			font-weight: bold;
+			color: #dbff00;
+			text-transform: capitalize;
+			font-size: 1.1em;
+		}
+		span.highlight2 {
+			font-weight: bold;
+			color: #fb6435;
+		}
+		b.higlight-action {
+			font-size: 1.2em;
+		}
+	}
+
+
+}

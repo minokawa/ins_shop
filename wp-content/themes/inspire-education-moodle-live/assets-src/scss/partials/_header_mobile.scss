@@ -1,0 +1,22 @@
+#header-mobile{
+	display: none;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 10px 0px;
+	border-bottom: solid 1px #eee;
+	a.logo{
+		width: 120px;
+		img {
+			width: 100%;
+		}
+	}
+	a{
+		display: block;
+		span.fw-900{
+			display: none;
+		}
+		span.fw-300{
+			display: none;
+		}
+	}
+}

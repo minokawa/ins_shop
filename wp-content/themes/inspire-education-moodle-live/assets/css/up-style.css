@@ -46,6 +46,55 @@ body.inspire-up .table_cols {
 body.inspire-up p.telephone {
   display: none;
 }
+body.inspire-up .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+body.inspire-up h2 {
+  text-transform: capitalize;
+  color: #46809d;
+}
+body.inspire-up div#content-wrap {
+  max-width: 1024px;
+  margin: auto;
+  padding: 20px 10px;
+}
+body.inspire-up .button, body.inspire-up .button-large, body.inspire-up .button-quiet, body.inspire-up #searchsubmit {
+  padding: 0.618em 1em !important;
+  background: none;
+  background-color: #002755 !important;
+  color: #fff;
+  font-size: 1em;
+  font-weight: normal;
+  border: none;
+  border-radius: 0px;
+  line-height: 1.4em;
+}
+body.inspire-up .button:hover, body.inspire-up .button-large:hover, body.inspire-up .button-quiet:hover, body.inspire-up #searchsubmit:hover {
+  background-color: #1a97db;
+  border: 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+}
+body.inspire-up input.text, body.inspire-up input.title, body.inspire-up textarea {
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 4;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  margin: 0px 0px 10px 0px;
+  padding: 5px 0px;
+  width: 100%;
+  display: block;
+  background-color: rgb(253, 253, 253);
+  z-index: 4;
+  border: 1px solid rgb(0, 39, 85);
+  color: #002755;
+  border-radius: 0px;
+  font-size: 1.2em;
+}
 body.inspire-up h2.course-cat {
   padding: 0px;
   display: flex;
@@ -145,6 +194,67 @@ body.inspire-up #header #brand {
   width: 184px;
   height: 64px;
 }
+body.inspire-up #header-mobile {
+  display: none;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 0px;
+  border-bottom: solid 1px #eee;
+}
+body.inspire-up #header-mobile a.logo {
+  width: 120px;
+}
+body.inspire-up #header-mobile a.logo img {
+  width: 100%;
+}
+body.inspire-up #header-mobile a {
+  display: block;
+}
+body.inspire-up #header-mobile a span.fw-900 {
+  display: none;
+}
+body.inspire-up #header-mobile a span.fw-300 {
+  display: none;
+}
+body.inspire-up #footer-wrap {
+  background-color: #002755;
+}
+body.inspire-up #footer-wrap .container {
+  display: flex;
+  max-width: 1024px;
+  margin: auto;
+  padding: 40px 0px;
+  justify-content: space-between;
+}
+body.inspire-up #footer-wrap .container .org {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+body.inspire-up #footer-wrap .container #foot-contact, body.inspire-up #footer-wrap .container p {
+  color: #fff;
+}
+body.inspire-up #footer-wrap .container #foot-nav ul {
+  display: flex;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+body.inspire-up #footer-wrap .container #foot-nav ul li {
+  margin-right: 10px;
+}
+body.inspire-up .q400-tab, body.inspire-up .velg-tab {
+  text-indent: -9999px;
+  background: url(../images/acreditation-tabs.png) no-repeat;
+  display: inline-block;
+  height: 64px;
+  width: 96px;
+}
+body.inspire-up .q400-tab {
+  background-position: -308px bottom;
+  width: 84px;
+}
+body.inspire-up .velg-tab {
+  background-position: bottom right;
+}
 body.inspire-up .modal-dialog {
   max-width: 720px;
   margin: auto;
@@ -207,198 +317,52 @@ body.inspire-up .modal .close:hover {
   transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
   transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
 }
-body.inspire-up form.checkout h1.course-title {
-  margin: 20px 0px;
-}
-body.inspire-up form.checkout .select2-container {
-  width: 100% !important;
-}
-body.inspire-up form.checkout .select2-container--default .select2-selection--single {
-  border-radius: 0px;
-}
-body.inspire-up form.checkout .select2-container .select2-selection--single,
-body.inspire-up form.checkout .select2-container--default .select2-selection--single .select2-selection__arrow {
-  height: 44px;
-}
-body.inspire-up form.checkout .select2-container--default .select2-selection--single .select2-selection__rendered {
-  line-height: 44px;
-}
-body.inspire-up form.checkout .select {
-  width: 100%;
-  float: none;
-  margin: 0px;
-}
-body.inspire-up form.checkout #step2 #billing_first_name_field,
-body.inspire-up form.checkout #step2 #billing_middle_name_field,
-body.inspire-up form.checkout #step2 #billing_last_name_field {
-  width: 32%;
-}
-body.inspire-up form.checkout #step2 #billing_work_phone_field,
-body.inspire-up form.checkout #step2 #billing_mobile_phone_field,
-body.inspire-up form.checkout #step2 #billing_home_phone_field,
-body.inspire-up form.checkout #step2 #billing_work_mobile_field {
-  width: 24%;
-}
-body.inspire-up form.checkout #step2 .shipping-address-group, body.inspire-up form.checkout #step2 .secondary-address-group, body.inspire-up form.checkout #step2 .usi_num {
-  padding: 10px;
-  background-color: #f4f4f4;
-  display: none;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 100%;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-body.inspire-up form.checkout #step2 .shipping-address-group h3, body.inspire-up form.checkout #step2 .secondary-address-group h3, body.inspire-up form.checkout #step2 .usi_num h3 {
-  padding: 10px 0px 10px 0px;
-  margin: 0px;
-  width: 100%;
-}
-body.inspire-up form.checkout #step2 .extra-details-group {
+body.inspire-up #cart-modal .cart_list li {
+  position: relative;
+  background-color: #f7f7f7;
+  margin-bottom: 20px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 100%;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-body.inspire-up form.checkout #step2 .extra-details-group > p, body.inspire-up form.checkout #step2 .extra-details-group > div {
-  width: 48%;
-  padding: 0px;
-  margin: 0px;
-}
-body.inspire-up form.checkout #step2 .extra-details-group .residency_field_wrapper,
-body.inspire-up form.checkout #step2 .extra-details-group .visa_disclaimer_field_wrapper {
   width: 100%;
 }
-body.inspire-up form.checkout #step2 .extra-details-group .visa_disclaimer_field_wrapper {
-  padding: 10px;
-  background-color: #f4f4f4;
+body.inspire-up #cart-modal .cart_list li img {
+  width: 100px;
+  margin-right: 10px;
+  height: auto;
 }
-body.inspire-up form.checkout #step2 .extra-details-group #ccf_country_birth_field {
-  width: 64%;
+body.inspire-up #cart-modal .cart_list li h2 {
+  color: #002755;
+  font-size: 1.5em;
 }
-body.inspire-up form.checkout #step2 .extra-details-group #ccf_date_birth_field {
-  width: 32%;
-}
-body.inspire-up form.checkout #step2 .extra-details-group .gender_field_wrapper {
-  width: 64%;
-}
-body.inspire-up form.checkout #step2 .extra-details-group .ethnicity_group_wrapper {
+body.inspire-up #cart-modal p.buttons {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 100%;
-  align-items: flex-start;
-  justify-content: space-between;
 }
-body.inspire-up form.checkout #step2 .extra-details-group .ethnicity_group_wrapper .ethnicity_field_wrapper {
-  width: 100%;
-}
-body.inspire-up form.checkout #step2 div#english-level {
-  padding: 10px;
-  background-color: #f4f4f4;
-}
-body.inspire-up form.checkout #step2 .checkout-form-personal-details {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 100%;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-body.inspire-up form.checkout #step2 .company-invoice-toggle, body.inspire-up form.checkout #step2 .home-address-toggle {
-  width: 100%;
-}
-body.inspire-up form.checkout #step2 h5 {
-  display: block;
-  clear: both;
-  text-transform: none !important;
-  width: 100%;
-  font-size: 1.2em;
-  font-weight: normal;
-  margin: 10px 0px;
-}
-body.inspire-up form.checkout #step4 div.checkbox p:empty {
+body.inspire-up #cart-modal p.buttons br {
   display: none;
 }
-body.inspire-up form.checkout #step4 div.checkbox h3 {
+body.inspire-up #cart-modal .cart_list.product_list_widget {
   padding: 0px;
-  margin: 20px 0px 20px 0px;
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
 }
-body.inspire-up form.checkout .next, body.inspire-up form.checkout .previous {
-  background-color: #002755;
-  display: inline-block;
-  padding: 16px 16px;
-  text-decoration: none;
-  text-shadow: none;
+body.inspire-up a.close-reveal-modal {
+  background-color: #f26122;
   color: #fff;
-  font-size: 1.2em;
-  cursor: pointer;
-  background-image: none;
   text-shadow: none;
-  border: none;
-  border-radius: 0px;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
+  padding: 0.618em 1em;
+  cursor: pointer;
+  margin: 5px;
 }
-body.inspire-up form.checkout .next:hover, body.inspire-up form.checkout .previous:hover {
+body.inspire-up a.close-reveal-modal:hover {
   background-color: #1a97db;
   border: 0;
+  text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
   transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
   transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
 }
-body.inspire-up .CTA-sidebar {
-  background: #002856;
-  padding: 10px;
-  color: #fff;
-  font-size: 1.3em;
-  text-shadow: none;
-}
-body.inspire-up .CTA-sidebar h3 {
-  color: #FFF;
-  font-weight: bold;
-}
-body.inspire-up .CTA-sidebar span.highlight1 {
-  font-weight: bold;
-  color: #dbff00;
-  text-transform: capitalize;
-  font-size: 1.1em;
-}
-body.inspire-up .CTA-sidebar span.highlight2 {
-  font-weight: bold;
-  color: #fb6435;
-}
-body.inspire-up .CTA-sidebar b.higlight-action {
-  font-size: 1.2em;
-}
 body.inspire-up .mobile-sticky .user-links {
   display: none;
-}
-body.inspire-up ul.product-category {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-body.inspire-up ul.product-category li {
-  list-style: none;
-  padding: 10px;
-  margin: 0px;
-  width: 22%;
-  display: block;
-  margin-bottom: 30px;
-  position: relative;
-}
-body.inspire-up ul.product-category li span.product-title {
-  display: block;
-  padding: 20px 0px;
 }
 body.inspire-up .upsell.container h3 {
   font-size: 18px;
@@ -429,33 +393,6 @@ body.inspire-up .upsell.container .upsell.products li.product .price {
   text-align: center;
   background: #54bae8;
   padding: 2px 0px;
-}
-body.inspire-up .cross-sell-wrapper {
-  margin-bottom: 20px;
-}
-body.inspire-up .cross-sell-wrapper h4 {
-  text-transform: none;
-}
-body.inspire-up .cross-sell-wrapper a {
-  display: block;
-  padding: 2px;
-}
-body.inspire-up .cross-sell-wrapper a img {
-  height: auto;
-  max-width: 100%;
-  width: auto;
-  position: initial;
-}
-body.inspire-up .product_meta {
-  background-color: #3dbbe8;
-  padding: 2px;
-  color: #fff;
-}
-body.inspire-up .product_meta span {
-  margin-right: 4px;
-}
-body.inspire-up .product_meta a, body.inspire-up .product_meta a:visited {
-  color: #092655;
 }
 @keyframes splide-loading {
   0% {
@@ -898,6 +835,103 @@ body.inspire-up .splide__pagination--ttb {
   right: 0.5em;
   top: 0;
 }
+body.inspire-up .cross-sell-wrapper {
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+body.inspire-up .cross-sell-wrapper h4 {
+  text-transform: none;
+}
+body.inspire-up .cross-sell-wrapper a {
+  display: block;
+  padding: 2px;
+}
+body.inspire-up .cross-sell-wrapper a img {
+  height: auto;
+  max-width: 100%;
+  width: auto;
+  position: initial;
+}
+body.inspire-up .product_meta {
+  background-color: #3dbbe8;
+  padding: 2px;
+  color: #fff;
+}
+body.inspire-up .product_meta span {
+  margin-right: 4px;
+}
+body.inspire-up .product_meta a, body.inspire-up .product_meta a:visited {
+  color: #092655;
+}
+body.inspire-up .side .woocommerce-main-image {
+  margin-bottom: 10px;
+  display: block;
+}
+body.inspire-up .side .two-column-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
+}
+body.inspire-up .side .two-column-layout .column {
+  width: 50%;
+  display: block;
+  align-items: center;
+}
+body.inspire-up .side .two-column-layout .column div[itemprop=offers] {
+  text-align: center;
+  font-weight: bold;
+}
+body.inspire-up .side .two-column-layout .column form.cart .button {
+  vertical-align: middle;
+  float: none;
+  width: 100%;
+}
+body.inspire-up .side .two-column-layout .column form.cart div.quantity {
+  width: 100px;
+}
+body.inspire-up .side .two-column-layout .column .quantity input.text {
+  margin: 0px 0px 10px 0px;
+  padding: 5px 0px;
+  width: 100%;
+  display: block;
+  background-color: rgb(253, 253, 253);
+  z-index: 4;
+  border: 1px solid rgb(0, 39, 85);
+  color: #002755;
+  border-radius: 0px;
+  font-size: 1.2em;
+}
+body.inspire-up .side .two-column-layout form.cart {
+  margin-bottom: 2em;
+  align-items: flex-start;
+  display: flex;
+}
+body.inspire-up .side .CTA-sidebar {
+  background: #002856;
+  padding: 10px;
+  color: #fff;
+  font-size: 1.3em;
+  text-shadow: none;
+}
+body.inspire-up .side .CTA-sidebar h3 {
+  color: #FFF;
+  font-weight: bold;
+}
+body.inspire-up .side .CTA-sidebar span.highlight1 {
+  font-weight: bold;
+  color: #dbff00;
+  text-transform: capitalize;
+  font-size: 1.1em;
+}
+body.inspire-up .side .CTA-sidebar span.highlight2 {
+  font-weight: bold;
+  color: #fb6435;
+}
+body.inspire-up .side .CTA-sidebar b.higlight-action {
+  font-size: 1.2em;
+}
 body.inspire-up div.product {
   display: flex;
   justify-content: space-between;
@@ -908,6 +942,43 @@ body.inspire-up div.product .side {
 }
 body.inspire-up div.product .main.summary.entry-summary {
   width: 72%;
+}
+body.inspire-up div.product div.images img {
+  position: relative;
+}
+body.inspire-up .summary.entry-summary .content ul {
+  list-style-type: disc;
+}
+body.inspire-up span.onsale {
+  background-color: #f1f000;
+  color: #1e1e1e;
+}
+body.inspire-up h1.product_title.entry-title {
+  color: #46809d;
+  font-size: 2.2em;
+}
+body.inspire-up a.reset_variations {
+  display: none;
+}
+body.inspire-up div.product form.cart .variations .value {
+  font-size: 1.2em;
+  padding: 0px;
+}
+body.inspire-up input[type=checkbox], body.inspire-up input[type=radio] {
+  box-sizing: border-box;
+  border: 0px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+body.inspire-up div.product p.price, body.inspire-up div.product span.price {
+  color: #77a464;
+  font-size: 16px;
+  font-weight: bold;
+}
+body.inspire-up .woocommerce-variation.single_variation .woocommerce-variation-price {
+  font-size: 16px;
+  font-weight: bold;
 }
 body.inspire-up #add_payment_method table.cart img, body.inspire-up table.cart img, body.inspire-up .woocommerce-checkout table.cart img {
   width: auto;
@@ -944,16 +1015,189 @@ body.inspire-up .cart-details .cart-collaterals {
 body.inspire-up .cart-details .cart-collaterals .wc-proceed-to-checkout a.checkout-button {
   margin-bottom: 10px;
 }
-body.inspire-up .clearfix::after {
-  content: "";
+body.inspire-up ul.product-category {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+body.inspire-up ul.product-category li {
+  list-style: none;
+  padding: 10px;
+  margin: 0px;
+  width: 22%;
+  display: block;
+  margin-bottom: 30px;
+  position: relative;
+}
+body.inspire-up ul.product-category li span.product-title {
+  display: block;
+  padding: 20px 0px;
+}
+body.inspire-up form.checkout h1.course-title {
+  margin: 20px 0px;
+}
+body.inspire-up form.checkout .select2-container {
+  width: 100% !important;
+}
+body.inspire-up form.checkout .select2-container--default .select2-selection--single {
+  border-radius: 0px;
+}
+body.inspire-up form.checkout .select2-container .select2-selection--single,
+body.inspire-up form.checkout .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 44px;
+}
+body.inspire-up form.checkout .select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 44px;
+}
+body.inspire-up form.checkout .select {
+  width: 100%;
+  float: none;
+  margin: 0px;
+}
+body.inspire-up form.checkout #step2 h5 {
+  display: block;
   clear: both;
-  display: table;
+  text-transform: none !important;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: normal;
+  margin: 10px 0px;
 }
-body.inspire-up h2 {
-  text-transform: capitalize;
-  color: #46809d;
+body.inspire-up form.checkout #step2 #billing_first_name_field,
+body.inspire-up form.checkout #step2 #billing_middle_name_field,
+body.inspire-up form.checkout #step2 #billing_last_name_field {
+  width: 32%;
 }
-body.inspire-up .step div {
+body.inspire-up form.checkout #step2 #billing_work_phone_field,
+body.inspire-up form.checkout #step2 #billing_mobile_phone_field,
+body.inspire-up form.checkout #step2 #billing_home_phone_field,
+body.inspire-up form.checkout #step2 #billing_work_mobile_field {
+  width: 24%;
+}
+body.inspire-up form.checkout #step2 .shipping-address-group, body.inspire-up form.checkout #step2 .secondary-address-group, body.inspire-up form.checkout #step2 .usi_num {
+  padding: 10px;
+  background-color: #f4f4f4;
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+body.inspire-up form.checkout #step2 .shipping-address-group h3, body.inspire-up form.checkout #step2 .secondary-address-group h3, body.inspire-up form.checkout #step2 .usi_num h3 {
+  padding: 10px 0px 10px 0px;
+  margin: 0px;
+  width: 100%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+body.inspire-up form.checkout #step2 .extra-details-group > p, body.inspire-up form.checkout #step2 .extra-details-group > div {
+  width: 48%;
+  padding: 0px;
+  margin: 0px;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .residency_field_wrapper,
+body.inspire-up form.checkout #step2 .extra-details-group .visa_disclaimer_field_wrapper {
+  width: 100%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .visa_disclaimer_field_wrapper {
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+body.inspire-up form.checkout #step2 .extra-details-group #ccf_country_birth_field {
+  width: 64%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group #ccf_date_birth_field {
+  width: 32%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .gender_field_wrapper {
+  width: 64%;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .ethnicity_group_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+body.inspire-up form.checkout #step2 .extra-details-group .ethnicity_group_wrapper .ethnicity_field_wrapper {
+  width: 100%;
+}
+body.inspire-up form.checkout #step2 div#english-level {
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+body.inspire-up form.checkout #step2 .checkout-form-personal-details {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+body.inspire-up form.checkout #step2 .company-invoice-toggle, body.inspire-up form.checkout #step2 .home-address-toggle {
+  width: 100%;
+}
+body.inspire-up form.checkout #step4 div.checkbox p:empty {
+  display: none;
+}
+body.inspire-up form.checkout #step4 div.checkbox h3 {
+  padding: 0px;
+  margin: 20px 0px 20px 0px;
+}
+body.inspire-up form.checkout .next, body.inspire-up form.checkout .previous {
+  background-color: #002755;
+  display: inline-block;
+  padding: 16px 16px;
+  text-decoration: none;
+  text-shadow: none;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+  background-image: none;
+  text-shadow: none;
+  border: none;
+  border-radius: 0px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+body.inspire-up form.checkout .next:hover, body.inspire-up form.checkout .previous:hover {
+  background-color: #1a97db;
+  border: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+}
+body.inspire-up form.checkout h3.event_title {
+  margin: 20px 0px 10px 0px;
+  padding: 0px;
+  font-size: 1em;
+  font-weight: bold;
+}
+body.inspire-up form.checkout h3.event_title span.course_title {
+  font-size: 1.2em;
+  display: block;
+  line-height: 2em;
+}
+body.inspire-up form.checkout .delivery_option_wrapper {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+body.inspire-up #checkout-steps .step div {
   width: 56px;
   height: 56px;
   background: url(../images/icons-process.png) 0 0 no-repeat;
@@ -964,7 +1208,7 @@ body.inspire-up .step div {
   right: -3px;
   z-index: 10;
 }
-body.inspire-up .step a {
+body.inspire-up #checkout-steps .step a {
   position: absolute;
   right: 0;
   z-index: 15;
@@ -976,214 +1220,29 @@ body.inspire-up .step a {
   font-weight: 700;
   font-size: 1.2em;
 }
-body.inspire-up .step-2 div {
+body.inspire-up #checkout-steps .step.step-2 div {
   background-position: -56px -56px;
 }
-body.inspire-up .step-2.active div, body.inspire-up .step-2.done div {
+body.inspire-up #checkout-steps .step.step-2.active div, body.inspire-up #checkout-steps .step.step-2.done div {
   background-position: -56px 0;
 }
-body.inspire-up .step-3 div {
+body.inspire-up #checkout-steps .step.step-3 div {
   background-position: -112px -56px;
 }
-body.inspire-up .step-3.active div, body.inspire-up .step-3.done div {
+body.inspire-up #checkout-steps .step.step-3.active div, body.inspire-up #checkout-steps .step.step-3.done div {
   background-position: -112px 0;
 }
-body.inspire-up .step-4 div {
+body.inspire-up #checkout-steps .step.step-4 div {
   background-position: -168px -56px;
 }
-body.inspire-up .step-4.active div, body.inspire-up .step-4.done div {
+body.inspire-up #checkout-steps .step.step-4.active div, body.inspire-up #checkout-steps .step.step-4.done div {
   background-position: -168px 0;
 }
-body.inspire-up .step-5 div {
+body.inspire-up #checkout-steps .step.step-5 div {
   background-position: -224px -56px;
 }
-body.inspire-up .step-5.active div, body.inspire-up .step-5.done div {
+body.inspire-up #checkout-steps .step.step-5.active div, body.inspire-up #checkout-steps .step.step-5.done div {
   background-position: -224px 0;
-}
-body.inspire-up div#content-wrap {
-  max-width: 1024px;
-  margin: auto;
-  padding: 20px 10px;
-}
-body.inspire-up span.onsale {
-  background-color: #f1f000;
-  color: #1e1e1e;
-}
-body.inspire-up h1.product_title.entry-title {
-  color: #46809d;
-  font-size: 2.2em;
-}
-body.inspire-up #header-mobile {
-  display: none;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 10px 0px;
-  border-bottom: solid 1px #eee;
-}
-body.inspire-up #header-mobile a.logo {
-  width: 120px;
-}
-body.inspire-up #header-mobile a.logo img {
-  width: 100%;
-}
-body.inspire-up #header-mobile a {
-  display: block;
-}
-body.inspire-up #header-mobile a span.fw-900 {
-  display: none;
-}
-body.inspire-up #header-mobile a span.fw-300 {
-  display: none;
-}
-body.inspire-up ul.cart_list.product_list_widget {
-  padding: 0px;
-  margin: 0px;
-  display: flex;
-  flex-wrap: wrap;
-}
-body.inspire-up a.close-reveal-modal {
-  background-color: #f26122;
-  color: #fff;
-  text-shadow: none;
-  padding: 0.618em 1em;
-  cursor: pointer;
-  margin: 5px;
-}
-body.inspire-up a.close-reveal-modal:hover {
-  background-color: #1a97db;
-  border: 0;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
-  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
-}
-body.inspire-up .button, body.inspire-up .button-large, body.inspire-up .button-quiet, body.inspire-up #searchsubmit {
-  padding: 0.618em 1em !important;
-  background: none;
-  background-color: #002755 !important;
-  color: #fff;
-  font-size: 1em;
-  font-weight: normal;
-  border: none;
-  border-radius: 0px;
-  line-height: 1.4em;
-}
-body.inspire-up .button:hover, body.inspire-up .button-large:hover, body.inspire-up .button-quiet:hover, body.inspire-up #searchsubmit:hover {
-  background-color: #1a97db;
-  border: 0;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
-  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
-}
-body.inspire-up .woocommerce #respond input#submit, body.inspire-up .woocommerce a.button, body.inspire-up .woocommerce button.button, body.inspire-up .woocommerce input.button {
-  font-size: 1.2em;
-  margin: 0;
-  line-height: 1;
-  cursor: pointer;
-  position: relative;
-  text-decoration: none;
-  overflow: visible;
-  padding: 0.618em 1em;
-  font-weight: 700;
-  border-radius: 3px;
-  left: auto;
-  color: white;
-  background-color: #002755;
-  border: 0;
-  display: inline-block;
-  background-image: none;
-  box-shadow: none;
-  border-radius: 0px;
-  padding: 10px 20px;
-}
-body.inspire-up .woocommerce #respond input#submit:hover, body.inspire-up .woocommerce a.button:hover, body.inspire-up .woocommerce button.button:hover, body.inspire-up .woocommerce input.button:hover {
-  background-color: #1a97db;
-  border: 0;
-  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
-  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
-}
-body.inspire-up .two-column-layout {
-  display: flex;
-  display: flex;
-  flex-wrap: wrap;
-  justify-items: center;
-  align-content: space-evenly;
-  align-items: center;
-}
-body.inspire-up .two-column-layout .column {
-  width: 50%;
-  display: block;
-  align-items: center;
-}
-body.inspire-up .two-column-layout .column div[itemprop=offers] {
-  text-align: center;
-  font-weight: bold;
-}
-body.inspire-up .two-column-layout .column form.cart .button {
-  vertical-align: middle;
-  float: none;
-  width: 100%;
-}
-body.inspire-up .two-column-layout .column form.cart div.quantity {
-  width: 100px;
-}
-body.inspire-up .two-column-layout .column .quantity input.text {
-  margin: 0px 0px 10px 0px;
-  padding: 5px 0px;
-  width: 100%;
-  display: block;
-  background-color: rgb(253, 253, 253);
-  z-index: 4;
-  border: 1px solid rgb(0, 39, 85);
-  color: #002755;
-  border-radius: 0px;
-  font-size: 1.2em;
-}
-body.inspire-up .two-column-layout form.cart {
-  margin-bottom: 2em;
-  align-items: flex-start;
-  display: flex;
-}
-body.inspire-up input.text, body.inspire-up input.title, body.inspire-up textarea {
-  background-color: rgba(0, 0, 0, 0.1);
-  z-index: 4;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  margin: 0px 0px 10px 0px;
-  padding: 5px 0px;
-  width: 100%;
-  display: block;
-  background-color: rgb(253, 253, 253);
-  z-index: 4;
-  border: 1px solid rgb(0, 39, 85);
-  color: #002755;
-  border-radius: 0px;
-  font-size: 1.2em;
-}
-body.inspire-up .reveal-modal .cart_list li {
-  position: relative;
-  background-color: #f7f7f7;
-  margin-bottom: 20px;
-  display: flex;
-  width: 100%;
-}
-body.inspire-up .reveal-modal .cart_list li img {
-  width: 100px;
-  margin-right: 10px;
-  height: auto;
-}
-body.inspire-up .reveal-modal .cart_list li h2 {
-  color: #002755;
-  font-size: 1.5em;
-}
-body.inspire-up .reveal-modal p.buttons {
-  font-size: 1;
-  display: flex;
-}
-body.inspire-up .reveal-modal p.buttons br {
-  display: none;
 }
 body.inspire-up ul#category-tabs-shop {
   display: flex;
@@ -1221,66 +1280,13 @@ body.inspire-up ul#category-tabs-shop li a .category-details span.count {
   font-weight: normal;
   color: #4a5153;
 }
-body.inspire-up form.checkout h3.event_title {
-  margin: 20px 0px 10px 0px;
-  padding: 0px;
-  font-size: 1em;
-  font-weight: bold;
-}
-body.inspire-up form.checkout h3.event_title span.course_title {
-  font-size: 1.2em;
+body.inspire-up a#shop_banner {
   display: block;
-  line-height: 2em;
-}
-body.inspire-up form.checkout .delivery_option_wrapper {
-  background-color: #f4f4f4;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-body.inspire-up .summary.entry-summary .content ul {
-  list-style-type: disc;
-}
-body.inspire-up div.product div.images img {
   position: relative;
+  margin-bottom: 1.5em;
 }
-body.inspire-up #footer-wrap {
-  background-color: #002755;
-}
-body.inspire-up #footer-wrap .container {
-  display: flex;
-  max-width: 1024px;
-  margin: auto;
-  padding: 40px 0px;
-  justify-content: space-between;
-}
-body.inspire-up #footer-wrap .container .org {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-body.inspire-up #footer-wrap .container #foot-contact, body.inspire-up #footer-wrap .container p {
-  color: #fff;
-}
-body.inspire-up #footer-wrap .container #foot-nav ul {
-  display: flex;
-  margin: 0px;
-  margin-bottom: 20px;
-}
-body.inspire-up #footer-wrap .container #foot-nav ul li {
-  margin-right: 10px;
-}
-body.inspire-up .q400-tab, body.inspire-up .velg-tab {
-  text-indent: -9999px;
-  background: url(../images/acreditation-tabs.png) no-repeat;
-  display: inline-block;
-  height: 64px;
-  width: 96px;
-}
-body.inspire-up .q400-tab {
-  background-position: -308px bottom;
-  width: 84px;
-}
-body.inspire-up .velg-tab {
-  background-position: bottom right;
+body.inspire-up a#shop_banner img {
+  width: 100%;
 }
 
 @media only screen and (max-width: 768px) {

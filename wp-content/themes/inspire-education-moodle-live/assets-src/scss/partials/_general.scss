@@ -1,0 +1,65 @@
+
+div.clear {display: none;}
+.checkbox p,form p  { float: none; width: 100%;}
+#billing_state_field, #shipping_state_field, #ccf_add_two_state_field{margin: initial;}
+.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {float: none;}
+.woocommerce ul.products li.product a img {width: auto !important;max-width:41%!important;}
+.woocommerce form .form-row .input-checkbox, .woocommerce-page form .form-row .input-checkbox {margin-right: 2px;height: 18px;width: 18px;}
+.table_cols { position: relative!important;  z-index: 9999999!important; }
+p.telephone { display: none; }
+
+
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+h2 {
+	text-transform: capitalize;
+	color: #46809d
+}
+
+div#content-wrap {
+		max-width: 1024px;
+		margin: auto;
+		padding: 20px 10px;
+}
+
+.button, .button-large, .button-quiet, #searchsubmit{
+	padding: 0.618em 1em !important;
+	background: none;
+	background-color: #002755 !important;
+	color: #fff;
+	font-size: 1em;
+	font-weight: normal;
+	border: none;
+	border-radius: 0px;
+	line-height: 1.4em;
+	&:hover{
+		background-color: #1a97db;
+		border: 0;
+		text-decoration: none;
+		transition: background-color .3s ease,color .3s ease,-webkit-transform .3s ease;
+		transition: background-color .3s ease,transform .3s ease,color .3s ease;
+		transition: background-color .3s ease,transform .3s ease,color .3s ease,-webkit-transform .3s ease;
+	}
+}
+
+input.text, input.title, textarea {
+		background-color: rgba(0,0,0,.1);
+		z-index: 4;
+		border: 1px solid rgba(255,255,255,0.3);
+		color: #fff;
+		margin: 0px 0px 10px 0px;
+		padding: 5px 0px;
+		width: 100%;
+		display: block;
+		background-color: rgb(253, 253, 253);
+		z-index: 4;
+		border: 1px solid rgb(0, 39, 85);
+		color: #002755;
+		border-radius: 0px;
+		font-size: 1.2em;
+}

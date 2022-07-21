@@ -296,8 +296,8 @@ if( function_exists('acf_add_local_field_group') ):
 					),
 					array(
 						'key' => 'field_62cfa3667828a',
-						'label' => 'Custom Price String',
-						'name' => 'custom_price_string',
+						'label' => 'Subscription_Details',
+						'name' => 'subscription_details',
 						'type' => 'textarea',
 						'instructions' => '',
 						'required' => 0,

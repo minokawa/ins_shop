@@ -51,22 +51,17 @@ global $post, $woocommerce, $product;
 		do_action( 'woocommerce_product_thumbnails' );
 	?>
 
-
-
-	<?php if ( $product->is_type( 'simple' )) : ?>
-
-
-    <div class='two-column-layout'>
-      <div class='column'>
-      <?php woocommerce_get_template( 'single-product/price.php' ); ?>
-      </div>
-      <div class='column'>
-      <?php woocommerce_get_template( 'single-product/add-to-cart/simple.php' ); ?>
-      </div>
-    </div>
-
+		<?php if ( $product->is_type( 'simple' )) : ?>
+			<div class='two-column-layout'>
+				<div class='column'>
+					<?php wc_get_template( 'single-product/price.php' ); ?>
+				</div>
+				<div class='column'>
+					<?php wc_get_template( 'single-product/add-to-cart/simple.php' ); ?>
+				</div>
+			</div>
+		<?php endif; ?>
 
 		<div class="CTA-sidebar"><h3>IMPORTANT:</h3>If you have an <span class="highlight1"> additional discount voucher</span>  code, <span class="highlight2"> "Enrol Now"</span> and <b>enter it on the next page</b> </div>
-	<?php endif; ?>
 
 </div>

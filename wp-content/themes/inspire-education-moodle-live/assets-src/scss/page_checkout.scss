@@ -22,6 +22,16 @@ form.checkout {
   }
 
   #step2 {
+		h5 {
+      display: block;
+      clear: both;
+      text-transform: none !important;
+      width: 100%;
+      font-size: 1.2em;
+      font-weight: normal;
+      margin: 10px 0px;
+    }
+
     #billing_first_name_field,
     #billing_middle_name_field,
     #billing_last_name_field{
@@ -111,15 +121,7 @@ form.checkout {
     .company-invoice-toggle, .home-address-toggle{
       width: 100%;
     }
-    h5 {
-      display: block;
-      clear: both;
-      text-transform: none !important;
-      width: 100%;
-      font-size: 1.2em;
-      font-weight: normal;
-      margin: 10px 0px;
-    }
+
 
   }
 
@@ -155,5 +157,84 @@ form.checkout {
     }
   }
 
+	h3.event_title {
+		margin: 20px 0px 10px 0px;
+		padding: 0px;
+		font-size: 1em;
+		font-weight: bold;
+		span.course_title {
+			font-size: 1.2em;
+			display: block;
+			line-height: 2em;
+		}
+	}
+
+	.delivery_option_wrapper {
+		background-color: #f4f4f4;
+		padding: 10px;
+		margin-bottom: 10px;
+	}
+
 }
+
+
+#checkout-steps {
+	.step{
+		div {
+			width: 56px;
+			height: 56px;
+			background: url(../images/icons-process.png) 0 0 no-repeat;
+			overflow: hidden;
+			display: block;
+			position: absolute;
+			top: -28px;
+			right: -3px;
+			z-index: 10;
+		}
+		a {
+			position: absolute;
+			right: 0;
+			z-index: 15;
+			top: -23px;
+			padding: 0 60px 0 0;
+			overflow: visible;
+			text-align: right;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 1.2em;
+		}
+		&.step-2 div {
+			background-position: -56px -56px;
+		}
+		&.step-2.active div, &.step-2.done div {
+			background-position: -56px 0;
+		}
+
+		&.step-3 div {
+			background-position: -112px -56px;
+		}
+		&.step-3.active div, &.step-3.done div {
+			background-position: -112px 0;
+		}
+
+		&.step-4 div {
+			background-position: -168px -56px;
+		}
+		&.step-4.active div, &.step-4.done div {
+			background-position: -168px 0;
+		}
+
+
+		&.step-5 div {
+			background-position: -224px -56px;
+		}
+		&.step-5.active div, &.step-5.done div {
+			background-position: -224px 0;
+		}
+
+	}
+}
+
+
+
 

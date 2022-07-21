@@ -1,26 +1,58 @@
 <?php
 
 
-add_filter( 'woocommerce_subscriptions_product_price_string', 'wcs_custom_price_strings', 10, 3 );
+add_filter( 'woocommerce_subscriptions_product_price_string', 'inspire_subscription_price_string', 10, 3 );
 
-function wcs_custom_price_strings( $subscription_string, $product, $include ) {
-	// $product_id = $product->get_id();
-	// if ( ! isset( $include['custom'] ) ) {
-	// 	$include['custom'] = true;
-	// }
+function inspire_subscription_price_string( $subscription_string, $product, $include ) {
 
-	// $custom_price_string = get_post_meta( $product_id, '_custom_price_string', true );
-	// if ( false !== $custom_price_string && '' !== $custom_price_string && false !== $include['custom'] ) {
-	// 	$subscription_string = $custom_price_string;
-	// }
-	//$subscription_string = 'heyo!!!!';
-		// if($product->post_type() == ''){
+	if($product->is_type( 'subscription' )){
+		return $subscription_string;
+	}
 
-		// }
-	// <p><em><span style="color: #ff0000;"><b>Upfront Payment of&nbsp; Only</b> <strong><del>$1,499</del> $1,495</strong> + 3 Monthly Payments of <del>$332</del> $166.67 <strong>(Total <del>$2,495</del> $1,995)</strong></span></em></p>
+	$sign_up_fee = get_post_meta( $product->get_id(), '_subscription_sign_up_fee', true );
+	$subscription_period = get_post_meta( $product->get_id(), '_subscription_period', true );
+	$period_interval = get_post_meta( $product->get_id(), '_subscription_period_interval', true );
+	$subscription_price = $product->get_price(); //get_post_meta( $product->get_id(), '_subscription_price', true );
+	$subscription_length = get_post_meta( $product->get_id(), '_subscription_length', true );
+
+	//Variable Subscription Product
+	if($product->is_type( 'variable-subscription' )){
+		return '';
+		//"<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>15.38</bdi></span> <span class="subscription-details"> / week for 26 weeks with 1 week free trial and a <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>890.00</bdi></span> sign-up fee</span>"
+	}
+
+	//The 'Variant' of the 'Variable Subscription'
+	if($product->is_type( 'subscription_variation' )){
+
+		$sp = "<span class='woocommerce-Price-amount amount'>
+						<bdi>
+							<span class='woocommerce-Price-currencySymbol'>&#36;</span>$sign_up_fee
+						</bdi>
+						Upfront payment and
+						<span class='woocommerce-Price-amount amount'>
+							<bdi><span class='woocommerce-Price-currencySymbol'>&#36;</span>$subscription_price</bdi>
+						</span>
+						<span class='subscription-details'>
+							every $period_interval $subscription_period for $subscription_length $subscription_period/s
+						</span>
+					</span>";
+		return $sp;
+	}
+
 	return $subscription_string;
 }
 
+add_filter('woocommerce_product_single_add_to_cart_text', 'inspire_product_button_text', 99, 2 );
+
+function inspire_product_button_text( $button_text, $product ) {
+   //Add to cart button for product links
+	if($product->is_type( 'external' )){
+		return 'View Product/s';
+	}
+
+
+	return 'Enrol Now';
+}
 
 add_filter('gettext', 'woo_translate_payment_terms', 999, 3);
 

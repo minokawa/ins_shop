@@ -26,7 +26,7 @@ jQuery(document).ready(function($){
 			$('#english-level').fadeIn("200", "linear");
 		}
 		if($('.cross-sell-wrapper').length > 0){
-			var splide = new Splide( '.cross-sell-wrapper',{"type":"loop","perPage":3} );
+			var splide = new Splide( '.cross-sell-wrapper',{"type":"loop","perPage":3,"autoWidth":true} );
 			splide.mount();
 		}
 
