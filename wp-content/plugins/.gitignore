@@ -1,4 +1,6 @@
 
 !inspire-subscription-manager
 !inspire-subscription-manager/*
+!inspire-booking-manager
+!inspire-booking-manager/*
 !.gitignore

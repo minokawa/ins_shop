@@ -45,7 +45,7 @@ final class Dashboard {
 
 	public function update_options($post_id) {
 
-		var_dump(self);
+		do_action( 'inspire_update_course_calendar',123);
 	}
 
 }
