@@ -19,7 +19,7 @@ class WorkshopCalendar extends AbstractCalendar  {
     $this->default_value = $default_value;
   }
 
-	public function getFilteredUnits(\DateTime $start_date, \DateTime $end_date, $valid_states, $constraints = array(), $intersect = FALSE, $reset = TRUE) {
+	public function getFilteredWorkshops(\DateTime $start_date, \DateTime $end_date, $valid_states, $constraints = array(), $intersect = FALSE, $reset = TRUE) {
     $units = array();
     $response = new CalendarResponse($start_date, $end_date, $valid_states);
     $keyed_units = $this->keyUnitsById();
@@ -46,6 +46,14 @@ class WorkshopCalendar extends AbstractCalendar  {
 
     return $response;
   }
+
+	public function getProgram($id){
+		return $this->getUnit($id);
+	}
+
+	public function getWorkshops(\DateTime $start_date, \DateTime $end_date, $reset = TRUE) {
+		return $this->getEvents( $start_date,  $end_date, $reset );
+	}
 }
 
 

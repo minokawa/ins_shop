@@ -26,14 +26,14 @@ if ( ! defined( 'INSPIRE_SUBSCRIPTION_MANAGER' ) ) {
 	define( 'INSPIRE_SUBSCRIPTION_MANAGER', plugin_dir_url(  __DIR__  . '/bootstrap.php' ) );
 }
 
-function php_requirements_error() {
+function inspire_subscription_php_requirements_error() {
 	$class = 'notice notice-error';
 	$message = INSPIRE_SUBSCRIPTION_MANAGER . ' requires PHP 7.4 or above. And ACF Fields' ;
 
 	printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 }
 
-function plugin_requirements_error() {
+function inspire_subscription_plugin_requirements_error() {
 	$class = 'notice notice-error';
 	$message = INSPIRE_SUBSCRIPTION_MANAGER . ' requires ACF Fields and Woo Subscriptions enabled.' ;
 
@@ -46,12 +46,12 @@ $php_version = phpversion();
 $requirements_failed = false;
 
 if (version_compare($php_version, "7.4") === -1) {
-    add_action( 'admin_notices', 'php_requirements_error' );
+    add_action( 'admin_notices', 'inspire_subscription_php_requirements_error' );
     $requirements_failed = true;
 }
 
 if( ! class_exists('ACF') ) {
-	add_action( 'admin_notices', 'plugin_requirements_error' );
+	add_action( 'admin_notices', 'inspire_subscription_plugin_requirements_error' );
 	$requirements_failed = true;
 }
 
