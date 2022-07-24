@@ -13,9 +13,6 @@
 
 namespace Inspire;
 
-ini_set( 'display_errors', 1 );
-error_reporting(E_ALL);
-
 use Roomify\Bat\Store\SqlLiteDBStore;
 use Inspire\Booking\QueryGenerator;
 use Inspire\Booking\WorkshopCalendar;

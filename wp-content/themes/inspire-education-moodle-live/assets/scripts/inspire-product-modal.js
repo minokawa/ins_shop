@@ -7,6 +7,7 @@
     $('#product-courses .' + userid).addClass("boomer").delay(10).fadeIn(400);
     var numItems = $('.boomer').length;
     $('#course-count').append(numItems);
+
     event.preventDefault();
   });
 
@@ -16,6 +17,8 @@
 
 	var product_entry_template = document.getElementById("product-entry-template").innerHTML;
 	function do_moodle_event_checks(products_to_check){
+
+
 		jQuery.ajax({
 			url: inspire_product_modal_data.rest.endpoints.event_check,
 			method: "POST",
@@ -41,9 +44,10 @@
 		url: inspire_product_modal_data.rest.endpoints.products,
 		method: "GET",
 		dataType: "json",
-		timeout: inspire_product_modal_data.rest.timeout,
+		timeout: 999999,
 		data: { 'wp_nonce_product_modal': inspire_product_modal_data.rest.nonce }
 	}).done(function (result) {
+
     $('#cart-modal-shop').delay(10).modal('hide');
     $('.products-modal').find('.loading_products').hide();
     $('.products-modal').find('.modal_title').show();

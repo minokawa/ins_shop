@@ -66,3 +66,21 @@ div.product p.price, div.product span.price {
 	}
 
 }
+div.product form.cart table.variations {
+	width: auto;
+	td, th{
+		select {
+			display: inline-block;
+			margin-right: 1em;
+			padding: 5px;
+			width: auto;
+			border-radius: 0px;
+		}
+		padding: initial;
+		label {
+				margin-right: 10px;
+				width: auto;
+		}
+	}
+
+}
