@@ -51,8 +51,8 @@ class WorkshopCalendar extends AbstractCalendar  {
 		return $this->getUnit($id);
 	}
 
-	public function getWorkshops(\DateTime $start_date, \DateTime $end_date, $reset = TRUE) {
-		return $this->getEvents( $start_date,  $end_date, $reset );
+	public function getWorkshops(\DateTime $start_date, \DateTime $end_date, $granularity) {
+		return $this->getEventsItemized( $start_date,  $end_date,  $granularity);
 	}
 }
 

@@ -1,0 +1,208 @@
+form.checkout h1.course-title {
+  margin: 20px 0px;
+}
+form.checkout .select2-container {
+  width: 100% !important;
+}
+form.checkout .select2-container--default .select2-selection--single {
+  border-radius: 0px;
+}
+form.checkout .select2-container .select2-selection--single,
+form.checkout .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 44px;
+}
+form.checkout .select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 44px;
+}
+form.checkout .select {
+  width: 100%;
+  float: none;
+  margin: 0px;
+}
+form.checkout #step2 h5 {
+  display: block;
+  clear: both;
+  text-transform: none !important;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: normal;
+  margin: 10px 0px;
+}
+form.checkout #step2 #billing_first_name_field,
+form.checkout #step2 #billing_middle_name_field,
+form.checkout #step2 #billing_last_name_field {
+  width: 32%;
+}
+form.checkout #step2 #billing_work_phone_field,
+form.checkout #step2 #billing_mobile_phone_field,
+form.checkout #step2 #billing_home_phone_field,
+form.checkout #step2 #billing_work_mobile_field {
+  width: 24%;
+}
+form.checkout #step2 .shipping-address-group, form.checkout #step2 .secondary-address-group, form.checkout #step2 .usi_num {
+  padding: 10px;
+  background-color: #f4f4f4;
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+form.checkout #step2 .shipping-address-group h3, form.checkout #step2 .secondary-address-group h3, form.checkout #step2 .usi_num h3 {
+  padding: 10px 0px 10px 0px;
+  margin: 0px;
+  width: 100%;
+}
+form.checkout #step2 .extra-details-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+form.checkout #step2 .extra-details-group > p, form.checkout #step2 .extra-details-group > div {
+  width: 48%;
+  padding: 0px;
+  margin: 0px;
+}
+form.checkout #step2 .extra-details-group .residency_field_wrapper,
+form.checkout #step2 .extra-details-group .visa_disclaimer_field_wrapper {
+  width: 100%;
+}
+form.checkout #step2 .extra-details-group .visa_disclaimer_field_wrapper {
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+form.checkout #step2 .extra-details-group #ccf_country_birth_field {
+  width: 64%;
+}
+form.checkout #step2 .extra-details-group #ccf_date_birth_field {
+  width: 32%;
+}
+form.checkout #step2 .extra-details-group .gender_field_wrapper {
+  width: 64%;
+}
+form.checkout #step2 .extra-details-group .ethnicity_group_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+form.checkout #step2 .extra-details-group .ethnicity_group_wrapper .ethnicity_field_wrapper {
+  width: 100%;
+}
+form.checkout #step2 div#english-level {
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+form.checkout #step2 .checkout-form-personal-details {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+form.checkout #step2 .company-invoice-toggle, form.checkout #step2 .home-address-toggle {
+  width: 100%;
+}
+form.checkout #step4 div.checkbox p:empty {
+  display: none;
+}
+form.checkout #step4 div.checkbox h3 {
+  padding: 0px;
+  margin: 20px 0px 20px 0px;
+}
+form.checkout .next, form.checkout .previous {
+  background-color: #002755;
+  display: inline-block;
+  padding: 16px 16px;
+  text-decoration: none;
+  text-shadow: none;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+  background-image: none;
+  text-shadow: none;
+  border: none;
+  border-radius: 0px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+form.checkout .next:hover, form.checkout .previous:hover {
+  background-color: #1a97db;
+  border: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, -webkit-transform 0.3s ease;
+}
+form.checkout h3.event_title {
+  margin: 20px 0px 10px 0px;
+  padding: 0px;
+  font-size: 1em;
+  font-weight: bold;
+}
+form.checkout h3.event_title span.course_title {
+  font-size: 1.2em;
+  display: block;
+  line-height: 2em;
+}
+form.checkout .delivery_option_wrapper {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#checkout-steps .step div {
+  width: 56px;
+  height: 56px;
+  background: url(../images/icons-process.png) 0 0 no-repeat;
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  top: -28px;
+  right: -3px;
+  z-index: 10;
+}
+#checkout-steps .step a {
+  position: absolute;
+  right: 0;
+  z-index: 15;
+  top: -23px;
+  padding: 0 60px 0 0;
+  overflow: visible;
+  text-align: right;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+#checkout-steps .step.step-2 div {
+  background-position: -56px -56px;
+}
+#checkout-steps .step.step-2.active div, #checkout-steps .step.step-2.done div {
+  background-position: -56px 0;
+}
+#checkout-steps .step.step-3 div {
+  background-position: -112px -56px;
+}
+#checkout-steps .step.step-3.active div, #checkout-steps .step.step-3.done div {
+  background-position: -112px 0;
+}
+#checkout-steps .step.step-4 div {
+  background-position: -168px -56px;
+}
+#checkout-steps .step.step-4.active div, #checkout-steps .step.step-4.done div {
+  background-position: -168px 0;
+}
+#checkout-steps .step.step-5 div {
+  background-position: -224px -56px;
+}
+#checkout-steps .step.step-5.active div, #checkout-steps .step.step-5.done div {
+  background-position: -224px 0;
+}
+
+/*# sourceMappingURL=page_checkout.css.map */
